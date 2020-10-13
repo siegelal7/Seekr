@@ -23,7 +23,12 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-require("./routes/api-routes.js")(app);
+// TODO: SWITCH THE TWO ROUTES
+// require("./controllers/api-routes.js")(app);
+// require("./controllers/html-routes.js")(app);
+
+const routes = require("./controllers/jobsController");
+app.use(routes);
 
 db.sequelize.sync({ force: true }).then(function () {
   // db.sequelize.sync().then(function () {
