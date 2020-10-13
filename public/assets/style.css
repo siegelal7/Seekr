@@ -36,3 +36,17 @@ img {
   /* opacity: 0.8; */
   box-shadow: 0 5px black;
 }
+
+.kanban {
+  cursor: grab;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.kanban:active {
+  cursor: grabbing;
+}
+
+.kanban.dragging {
+  opacity: 0.5;
+  transform: scale(0.8);
+}
