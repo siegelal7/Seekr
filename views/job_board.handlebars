@@ -26,13 +26,13 @@
             <h4>Planning to apply</h4>
             <p>
               <button class="button tiny" data-open="exampleModal1">
-                Click me for a modal
+                Add a job
               </button>
             </p>
 
             <!-- hidden modal -->
             <div class="reveal" id="exampleModal1" data-reveal>
-              <form id="submit-new-job-form">
+              <form id="submit-new-job-form" action="">
                 <label for="title">Job Title:</label>
                 <input type="text" name="title" id="job-title" />
                 <label for="company">Company Name:</label>
@@ -54,6 +54,25 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
+                {{#each jobs}}
+
+                    <div
+              class="kanban card"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-id="{{this.id}}"
+            >
+                <div class="card-section">
+                    <h4>{{this.jobName}}</h4>
+                    <p>{{this.company}}</p>
+                    <p>{{this.position}}</p>
+                    <p>{{this.stage}}</p>
+              </div>
+                </div>
+
+
+                {{/each}}
+            
             <!-- <div
               class="kanban card"
               draggable="true"
@@ -75,6 +94,7 @@
         <div class="card">
           <div class="card-section">
             <h4>Applied</h4>
+            
             <!-- <div
               class="kanban card"
               draggable="true"
@@ -188,11 +208,29 @@
   crossorigin="anonymous"
 ></script>
 <script>
+
+
   //event listener for add new job btn
+  const newJobModal = $("#exampleModal1");
   const addJob = $("#submit-new-job-form");
   addJob.on("submit", function (event) {
     event.preventDefault();
     console.log("test");
+    const obj = {
+      jobName: $("#job-title").val().trim(),
+      company: $("#company-name").val().trim(),
+      position: $("#position").val().trim(),
+      stage: $("#stage").val().trim(),
+    };
+    $.ajax({
+      type: "POST",
+      url: "api/job",
+      data: obj,
+    }).then(function (data) {
+      console.log(data);
+    });
+    //not sure this is the best solution to hide it
+    // newJobModal.attr("style", "display:none");
   });
 
   const dragStart = (event) => {
