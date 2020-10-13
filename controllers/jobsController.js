@@ -8,7 +8,8 @@ router.get("/", (req, res) => {
 });
 
 router.get("/job-board", (req, res) => {
-  res.render("job_board");
+  // const jobs = db.Job.findAll().then(dbJob => dbJob);
+  res.render("job_board", {jobs: jobs});
 });
 
 
