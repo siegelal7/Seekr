@@ -16,3 +16,187 @@
     </ul>
   </div>
 </div>
+
+<div class="table">
+  <div class="grid-container">
+    <div class="grid-x grid-margin-x small-up-6 medium-up-6">
+      <div class="cell" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class="card">
+          <div class="card-section">
+            <h4>Planning to apply</h4>
+            <!-- <div
+              class="kanban card"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-id="1"
+            >
+              <div class="card-section">
+                <h4>This is a card.</h4>
+                <p>
+                  It has an easy to override visual style, and is appropriately
+                  subdued.
+                </p>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="cell" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class="card">
+          <div class="card-section">
+            <h4>Applied</h4>
+            <!-- <div
+              class="kanban card"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-id="2"
+            >
+              <div class="card-section">
+                <h4>This is a card.</h4>
+                <p>
+                  It has an easy to override visual style, and is appropriately
+                  subdued.
+                </p>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="cell" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class="card">
+          <div class="card-section">
+            <h4>Phone Screen</h4>
+            <!-- <div
+              class="kanban card"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-id="3"
+            >
+              <div class="card-section">
+                <h4>This is a card.</h4>
+                <p>
+                  It has an easy to override visual style, and is appropriately
+                  subdued.
+                </p>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="cell" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class="card">
+          <div class="card-section">
+            <h4>On Site</h4>
+            <!-- <div
+              class="kanban card"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-id="4"
+            >
+              <div class="card-section">
+                <h4>This is a card.</h4>
+                <p>
+                  It has an easy to override visual style, and is appropriately
+                  subdued.
+                </p>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="cell" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class="card">
+          {{!-- <img src="assets/img/generic/rectangle-1.jpg" /> --}}
+          <div class="card-section">
+            <h4>Offers</h4>
+            <!-- <div
+              class="kanban card"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-id="5"
+            >
+              <div class="card-section">
+                <h4>This is a card.</h4>
+                <p>
+                  It has an easy to override visual style, and is appropriately
+                  subdued.
+                </p>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="cell" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class="card">
+          {{!-- <img src="assets/img/generic/rectangle-1.jpg" /> --}}
+          <div class="card-section">
+            <h4>Rejected</h4>
+            <!-- <div
+              class="kanban card"
+              draggable="true"
+              ondragstart="drag(event)"
+              data-id="6"
+            >
+              <div class="card-section">
+                <h4>This is a card.</h4>
+                <p>
+                  It has an easy to override visual style, and is appropriately
+                  subdued.
+                </p>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  const dragStart = (event) => {
+    event.currentTarget.classList.add("dragging");
+  };
+
+  const dragEnd = (event) => {
+    event.currentTarget.classList.remove("dragging");
+  };
+
+  Array.from(document.querySelectorAll(".card")).forEach((card) => {
+    card.addEventListener("dragstart", dragStart);
+    card.addEventListener("dragend", dragEnd);
+  });
+
+  const drag = (event) => {
+    event.dataTransfer.setData("text/html", event.currentTarget.outerHTML);
+    event.dataTransfer.setData("text/plain", event.currentTarget.dataset.id);
+  };
+
+  const dragEnter = (event) => {
+    event.currentTarget.classList.add("drop");
+  };
+
+  const dragLeave = (event) => {
+    event.currentTarget.classList.remove("drop");
+  };
+
+  Array.from(document.querySelectorAll(".column")).forEach((column) => {
+    column.addEventListener("dragenter", dragEnter);
+    column.addEventListener("dragleave", dragLeave);
+  });
+
+  const drop = (event) => {
+    Array.from(document.querySelectorAll(".column")).forEach((column) =>
+      column.classList.remove("drop")
+    );
+
+    document
+      .querySelector(`[data-id="${event.dataTransfer.getData("text/plain")}"]`)
+      .remove();
+
+    event.currentTarget.innerHTML =
+      event.currentTarget.innerHTML + event.dataTransfer.getData("text/html");
+  };
+
+  const allowDrop = (event) => {
+    event.preventDefault();
+  };
+</script>
