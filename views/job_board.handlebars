@@ -13,80 +13,72 @@
       </li>
       <li><a href="/">Home</a></li>
       <li><a href="#Item-4">About Us</a></li>
-      <span id="add-button"
-        ><a data-open="exampleModal1"> Add a Prospect </a></span
-      >
+      <li>
+        <button class="button tiny" data-open="exampleModal1">Add a job</button>
+      </li>
     </ul>
   </div>
 </div>
 
-<div class="table">
-  <div class="grid-container">
-    <div class="grid-x grid-margin-x small-up-6 medium-up-6">
-      <div
-        class="cell"
-        ondrop="drop(event)"
-        ondragover="allowDrop(event)"
-        id="planning-to-apply"
-      >
-        <div class="card">
-          <div class="card-section">
-            <!-- <button
-              class="button tiny"
-              data-open="exampleModal1"
-              id="add-button"
-            >
-              +
-            </button> -->
+<div class="grid-container full">
+  <div class="grid-x small-up-6 medium-up-6">
+    <div class="cell cell-title">Planning to Apply</div>
+    <div class="cell cell-title">Applied</div>
+    <div class="cell cell-title">Phone Screen</div>
+    <div class="cell cell-title">On Site</div>
+    <div class="cell cell-title">Offers</div>
+    <div class="cell cell-title">Rejected</div>
+  </div>
+</div>
 
-            <h4>Planning to apply</h4>
+<div class="grid-container full">
+  <div class="grid-x small-up-6 medium-up-6">
+    <div
+      class="cell cell-col"
+      ondrop="drop(event)"
+      ondragover="allowDrop(event)"
+      id="planning-to-apply"
+    >
+      <!-- hidden modal -->
+      <div class="reveal" id="exampleModal1" data-reveal>
+        <form id="submit-new-job-form" action="">
+          <label for="title">Job Title:</label>
+          <input type="text" name="title" id="job-title" />
+          <label for="company">Company Name:</label>
+          <input type="text" name="company" id="company-name" />
+          <label for="position">Position:</label>
+          <input type="text" name="position" id="position" />
+          <label for="stage">Stage:</label>
+          <select id="stage">
+            <option value="Planning to Apply">Planning to Apply</option>
+            <option value="Applied">Applied</option>
+            <option value="Phone Screen">Phone Screen</option>
+            <option value="On Site">On Site</option>
+            <option value="Offers">Offers</option>
+            <option value="Rejected">Rejected</option>
+          </select>
+          <button
+            class="button success"
+            data-close
+            aria-label="Close modal"
+            id="submit-new-job"
+          >
+            Submit
+          </button>
+        </form>
+        {{!--
+        <button
+          class="close-button"
+          data-close
+          aria-label="Close modal"
+          type="button"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+        --}}
+      </div>
 
-            <!-- hidden modal -->
-            <div class="reveal" id="exampleModal1" data-reveal>
-              <form id="submit-new-job-form" action="">
-                <label for="title">Job Title:</label>
-                <input type="text" name="title" id="job-title" />
-                <label for="company">Company Name:</label>
-                <input type="text" name="company" id="company-name" />
-                <label for="position">Position:</label>
-                <input type="text" name="position" id="position" />
-                <label for="stage">Stage:</label>
-                <input type="text" name="stage" id="stage" />
-
-                <button class="button success" id="submit-new-job">
-                  Submit
-                </button>
-              </form>
-              <button
-                class="close-button"
-                data-close
-                aria-label="Close modal"
-                type="button"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            {{#each jobs}}
-            {{#ifEquals this.stage "Planning to apply"}}
-
-            <div
-              class="kanban card"
-              draggable="true"
-              ondragstart="drag(event)"
-              data-id="{{ this.id }}"
-            >
-              <div class="card-section">
-                <h4>{{ this.jobName }}</h4>
-                <p>{{ this.company }}</p>
-                <p>{{ this.position }}</p>
-                <p>{{ this.stage }}</p>
-              </div>
-            </div>
-
-            {{/ifEquals}}
-            {{/each}}
-
-            <!-- <div
+      <!-- <div
               class="kanban card"
               draggable="true"
               ondragstart="drag(event)"
@@ -100,169 +92,159 @@
                 </p>
               </div>
             </div> -->
-          </div>
-        </div>
-      </div>
+
+      {{#each jobs}}
+      {{#ifEquals this.stage "Planning to Apply"}}
+
       <div
-        class="cell"
-        ondrop="drop(event)"
-        ondragover="allowDrop(event)"
-        id="applied"
+        class="kanban card"
+        draggable="true"
+        ondragstart="drag(event)"
+        data-id="{{ this.id }}"
       >
-        <div class="card">
-          <div class="card-section">
-            <h4>Applied</h4>
-            {{#each jobs}}
-            {{#ifEquals this.stage "Applied"}}
-
-            <div
-              class="kanban card"
-              draggable="true"
-              ondragstart="drag(event)"
-              data-id="{{ this.id }}"
-            >
-              <div class="card-section">
-                <h4>{{ this.jobName }}</h4>
-                <p>{{ this.company }}</p>
-                <p>{{ this.position }}</p>
-                <p>{{ this.stage }}</p>
-              </div>
-            </div>
-
-            {{/ifEquals}}
-            {{/each}}
-          </div>
+        <div class="card-section">
+          <h4>{{ this.jobName }}</h4>
+          <p>{{ this.company }}</p>
+          <p>{{ this.position }}</p>
+          <p>{{ this.stage }}</p>
         </div>
       </div>
+
+      {{/ifEquals}}
+      {{/each}}
+    </div>
+    <div
+      class="cell cell-col"
+      ondrop="drop(event)"
+      ondragover="allowDrop(event)"
+      id="applied"
+    >
+      {{#each jobs}}
+      {{#ifEquals this.stage "Applied"}}
+
       <div
-        class="cell"
-        ondrop="drop(event)"
-        ondragover="allowDrop(event)"
-        id="phone-screen"
+        class="kanban card"
+        draggable="true"
+        ondragstart="drag(event)"
+        data-id="{{ this.id }}"
       >
-        <div class="card">
-          <div class="card-section">
-            <h4>Phone Screen</h4>
-
-            {{#each jobs}}
-            {{#ifEquals this.stage "Phone Screen"}}
-
-            <div
-              class="kanban card"
-              draggable="true"
-              ondragstart="drag(event)"
-              data-id="{{ this.id }}"
-            >
-              <div class="card-section">
-                <h4>{{ this.jobName }}</h4>
-                <p>{{ this.company }}</p>
-                <p>{{ this.position }}</p>
-                <p>{{ this.stage }}</p>
-              </div>
-            </div>
-
-            {{/ifEquals}}
-            {{/each}}
-          </div>
+        <div class="card-section">
+          <h4>{{ this.jobName }}</h4>
+          <p>{{ this.company }}</p>
+          <p>{{ this.position }}</p>
+          <p>{{ this.stage }}</p>
         </div>
       </div>
+
+      {{/ifEquals}}
+      {{/each}}
+    </div>
+    <div
+      class="cell cell-col"
+      ondrop="drop(event)"
+      ondragover="allowDrop(event)"
+      id="phone-screen"
+    >
+      {{#each jobs}}
+      {{#ifEquals this.stage "Phone Screen"}}
+
       <div
-        class="cell"
-        ondrop="drop(event)"
-        ondragover="allowDrop(event)"
-        id="on-site"
+        class="kanban card"
+        draggable="true"
+        ondragstart="drag(event)"
+        data-id="{{ this.id }}"
       >
-        <div class="card">
-          <div class="card-section">
-            <h4>On Site</h4>
-            {{#each jobs}}
-            {{#ifEquals this.stage "On Site"}}
-            <div
-              class="kanban card"
-              draggable="true"
-              ondragstart="drag(event)"
-              data-id="{{ this.id }}"
-            >
-              <div class="card-section">
-                <h4>{{ this.jobName }}</h4>
-                <p>{{ this.company }}</p>
-                <p>{{ this.position }}</p>
-                <p>{{ this.stage }}</p>
-              </div>
-            </div>
-
-            {{/ifEquals}}
-            {{/each}}
-          </div>
+        <div class="card-section">
+          <h4>{{ this.jobName }}</h4>
+          <p>{{ this.company }}</p>
+          <p>{{ this.position }}</p>
+          <p>{{ this.stage }}</p>
         </div>
       </div>
+
+      {{/ifEquals}}
+      {{/each}}
+    </div>
+    <div
+      class="cell cell-col"
+      ondrop="drop(event)"
+      ondragover="allowDrop(event)"
+      id="on-site"
+    >
+      {{#each jobs}}
+      {{#ifEquals this.stage "On Site"}}
       <div
-        class="cell"
-        ondrop="drop(event)"
-        ondragover="allowDrop(event)"
-        id="offers"
+        class="kanban card"
+        draggable="true"
+        ondragstart="drag(event)"
+        data-id="{{ this.id }}"
       >
-        <div class="card">
-          {{!-- <img src="assets/img/generic/rectangle-1.jpg" /> --}}
-          <div class="card-section">
-            <h4>Offers</h4>
-            {{#each jobs}}
-            {{#ifEquals this.stage "Offers"}}
-
-            <div
-              class="kanban card"
-              draggable="true"
-              ondragstart="drag(event)"
-              data-id="{{ this.id }}"
-            >
-              <div class="card-section">
-                <h4>{{ this.jobName }}</h4>
-                <p>{{ this.company }}</p>
-                <p>{{ this.position }}</p>
-                <p>{{ this.stage }}</p>
-              </div>
-            </div>
-
-            {{/ifEquals}}
-            {{/each}}
-          </div>
+        <div class="card-section">
+          <h4>{{ this.jobName }}</h4>
+          <p>{{ this.company }}</p>
+          <p>{{ this.position }}</p>
+          <p>{{ this.stage }}</p>
         </div>
       </div>
+
+      {{/ifEquals}}
+      {{/each}}
+    </div>
+    <div
+      class="cell cell-col"
+      ondrop="drop(event)"
+      ondragover="allowDrop(event)"
+      id="offers"
+    >
+      {{#each jobs}}
+      {{#ifEquals this.stage "Offers"}}
+
       <div
-        class="cell"
-        ondrop="drop(event)"
-        ondragover="allowDrop(event)"
-        id="rejected"
+        class="kanban card"
+        draggable="true"
+        ondragstart="drag(event)"
+        data-id="{{ this.id }}"
       >
-        <div class="card">
-          {{!-- <img src="assets/img/generic/rectangle-1.jpg" /> --}}
-          <div class="card-section">
-            <h4>Rejected</h4>
-            {{#each jobs}}
-            {{#ifEquals this.stage "Rejected"}}
-
-            <div
-              class="kanban card"
-              draggable="true"
-              ondragstart="drag(event)"
-              data-id="{{ this.id }}"
-            >
-              <div class="card-section">
-                <h4>{{ this.jobName }}</h4>
-                <p>{{ this.company }}</p>
-                <p>{{ this.position }}</p>
-                <p>{{ this.stage }}</p>
-              </div>
-            </div>
-
-            {{/ifEquals}}
-            {{/each}}
-          </div>
+        <div class="card-section">
+          <h4>{{ this.jobName }}</h4>
+          <p>{{ this.company }}</p>
+          <p>{{ this.position }}</p>
+          <p>{{ this.stage }}</p>
         </div>
       </div>
+
+      {{/ifEquals}}
+      {{/each}}
+    </div>
+    <div
+      class="cell cell-col"
+      ondrop="drop(event)"
+      ondragover="allowDrop(event)"
+      id="rejected"
+    >
+      {{#each jobs}}
+      {{#ifEquals this.stage "Rejected"}}
+
+      <div
+        class="kanban card"
+        draggable="true"
+        ondragstart="drag(event)"
+        data-id="{{ this.id }}"
+      >
+        <div class="card-section">
+          <h4>{{ this.jobName }}</h4>
+          <p>{{ this.company }}</p>
+          <p>{{ this.position }}</p>
+          <p>{{ this.stage }}</p>
+        </div>
+      </div>
+
+      {{/ifEquals}}
+      {{/each}}
     </div>
   </div>
 </div>
+
 <!-- had to import jquery here for it to work for some reason.. -->
 <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -288,6 +270,7 @@
       data: obj,
     }).then(function (data) {
       console.log(data);
+      location.reload();
     });
     //not sure this is the best solution to hide it
     // newJobModal.attr("style", "display:none");
@@ -342,7 +325,7 @@
     );
     let newStage;
     if (stage === "planning-to-apply") {
-      newStage = "Planning to apply";
+      newStage = "Planning to Apply";
     } else if (stage == "applied") {
       newStage = "Applied";
     } else if (stage == "phone-screen") {
@@ -366,6 +349,7 @@
       data: data,
     }).then(function (data) {
       console.log("successfully changed status");
+      location.reload();
     });
   };
 
