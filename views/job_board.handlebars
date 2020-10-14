@@ -16,6 +16,7 @@
       <li>
         <button class="button tiny" data-open="exampleModal1">Add a job</button>
       </li>
+      <li>Hi <span class="user-name"></span>!</li>
     </ul>
   </div>
 </div>
@@ -393,17 +394,23 @@
   crossorigin="anonymous"
 ></script>
 <script>
+  let currentUserId;
+
+  $.get("/api/user_data").then(dbUser => {
+    currentUserId = dbUser.id;
+  });
   //event listener for add new job btn
   const newJobModal = $("#exampleModal1");
   const addJob = $("#submit-new-job-form");
+
   addJob.on("submit", function (event) {
     event.preventDefault();
-    //console.log("test");
     const obj = {
       jobName: $("#job-title").val().trim(),
       company: $("#company-name").val().trim(),
       position: $("#position").val().trim(),
       stage: $("#stage").val().trim(),
+      UserId: currentUserId
     };
     $.ajax({
       type: "POST",
@@ -545,4 +552,8 @@
     event.preventDefault();
     // console.log(event.currentTarget.lastElementChild.getAttribute("data-id"));
   };
+
+  $.get("/api/user_data").then(dbUser => {
+    $(".user-name").text(dbUser.firstName);
+  });
 </script>

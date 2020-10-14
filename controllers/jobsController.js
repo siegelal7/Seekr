@@ -1,23 +1,27 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
-// const eq = require("ember-truth-helpers");
+
+// Requiring our custom middleware for checking if a user is logged in
+const isAuthenticated = require("../config/middleware/isAuthenticated");
+
 //========================VIEW ROUTES============================
 router.get("/", (req, res) => {
   res.render("index");
 });
 
-router.get("/job-board", (req, res) => {
-  // let data;
-  db.Job.findAll().then(function (data) {
-    // data = data;
-    // console.log(data);
-    // return data;
+router.get("/job-board", isAuthenticated, (req, res) => {
+  db.Job.findAll({
+    where: {
+      UserId: req.user.id
+    }
+  }).then(function (data) {
     res.render("job_board", { jobs: data });
   });
 });
 
-//========================API ROUTES============================
+//========================API ROUTES==============================
+// Returns all job cards
 router.get("/api/jobs", (req, res) => {
   db.Job.findAll().then((dbJob) => res.json(dbJob));
 });
