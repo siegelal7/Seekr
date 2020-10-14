@@ -14,14 +14,21 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "/public")));
 // app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+
 app.engine(
   "handlebars",
   exphbs({
     defaultLayout: "main",
     handlebars: allowInsecurePrototypeAccess(handlebars),
+    helpers: {
+      ifEquals: function(a, b, opts) {
+        return (a == b) ? opts.fn(this) : opts.inverse(this);
+      }
+    }
   })
 );
 app.set("view engine", "handlebars");
+
 
 // TODO: SWITCH THE TWO ROUTES
 // require("./controllers/api-routes.js")(app);

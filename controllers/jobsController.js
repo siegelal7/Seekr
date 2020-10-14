@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
-const eq = require("ember-truth-helpers");
+// const eq = require("ember-truth-helpers");
 //========================VIEW ROUTES============================
 router.get("/", (req, res) => {
   res.render("index");
