@@ -20,7 +20,12 @@
 <div class="table">
   <div class="grid-container">
     <div class="grid-x grid-margin-x small-up-6 medium-up-6">
-      <div class="cell" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div
+        class="cell"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+        id="planning-to-apply"
+      >
         <div class="card">
           <div class="card-section">
             <h4>Planning to apply</h4>
@@ -54,26 +59,26 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-                {{#each jobs}}
-                  {{#ifEquals this.stage "Planning to apply"}}
+            {{#each jobs}}
+            {{#ifEquals this.stage "Planning to apply"}}
 
-                    <div
+            <div
               class="kanban card"
               draggable="true"
               ondragstart="drag(event)"
-              data-id="{{this.id}}"
+              data-id="{{ this.id }}"
             >
-                <div class="card-section">
-                    <h4>{{this.jobName}}</h4>
-                    <p>{{this.company}}</p>
-                    <p>{{this.position}}</p>
-                    <p>{{this.stage}}</p>
+              <div class="card-section">
+                <h4>{{ this.jobName }}</h4>
+                <p>{{ this.company }}</p>
+                <p>{{ this.position }}</p>
+                <p>{{ this.stage }}</p>
               </div>
-                </div>
+            </div>
 
-                  {{/ifEquals}}
-                {{/each}}
-            
+            {{/ifEquals}}
+            {{/each}}
+
             <!-- <div
               class="kanban card"
               draggable="true"
@@ -91,140 +96,160 @@
           </div>
         </div>
       </div>
-      <div class="cell" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div
+        class="cell"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+        id="applied"
+      >
         <div class="card">
           <div class="card-section">
             <h4>Applied</h4>
-                {{#each jobs}}
-                  {{#ifEquals this.stage "Applied"}}
+            {{#each jobs}}
+            {{#ifEquals this.stage "Applied"}}
 
-                    <div
+            <div
               class="kanban card"
               draggable="true"
               ondragstart="drag(event)"
-              data-id="{{this.id}}"
+              data-id="{{ this.id }}"
             >
-                <div class="card-section">
-                    <h4>{{this.jobName}}</h4>
-                    <p>{{this.company}}</p>
-                    <p>{{this.position}}</p>
-                    <p>{{this.stage}}</p>
+              <div class="card-section">
+                <h4>{{ this.jobName }}</h4>
+                <p>{{ this.company }}</p>
+                <p>{{ this.position }}</p>
+                <p>{{ this.stage }}</p>
               </div>
-                </div>
+            </div>
 
-                  {{/ifEquals}}
-                {{/each}}
-
+            {{/ifEquals}}
+            {{/each}}
           </div>
         </div>
       </div>
-      <div class="cell" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div
+        class="cell"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+        id="phone-screen"
+      >
         <div class="card">
           <div class="card-section">
             <h4>Phone Screen</h4>
 
-                            {{#each jobs}}
-                  {{#ifEquals this.stage "Phone Screen"}}
+            {{#each jobs}}
+            {{#ifEquals this.stage "Phone Screen"}}
 
-                    <div
+            <div
               class="kanban card"
               draggable="true"
               ondragstart="drag(event)"
-              data-id="{{this.id}}"
+              data-id="{{ this.id }}"
             >
-                <div class="card-section">
-                    <h4>{{this.jobName}}</h4>
-                    <p>{{this.company}}</p>
-                    <p>{{this.position}}</p>
-                    <p>{{this.stage}}</p>
+              <div class="card-section">
+                <h4>{{ this.jobName }}</h4>
+                <p>{{ this.company }}</p>
+                <p>{{ this.position }}</p>
+                <p>{{ this.stage }}</p>
               </div>
-                </div>
+            </div>
 
-                  {{/ifEquals}}
-                {{/each}}
-
+            {{/ifEquals}}
+            {{/each}}
           </div>
         </div>
       </div>
-      <div class="cell" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div
+        class="cell"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+        id="on-site"
+      >
         <div class="card">
           <div class="card-section">
             <h4>On Site</h4>
-                {{#each jobs}}
-                  {{#ifEquals this.stage "On Site"}}
-                    <div
+            {{#each jobs}}
+            {{#ifEquals this.stage "On Site"}}
+            <div
               class="kanban card"
               draggable="true"
               ondragstart="drag(event)"
-              data-id="{{this.id}}"
+              data-id="{{ this.id }}"
             >
-                <div class="card-section">
-                    <h4>{{this.jobName}}</h4>
-                    <p>{{this.company}}</p>
-                    <p>{{this.position}}</p>
-                    <p>{{this.stage}}</p>
+              <div class="card-section">
+                <h4>{{ this.jobName }}</h4>
+                <p>{{ this.company }}</p>
+                <p>{{ this.position }}</p>
+                <p>{{ this.stage }}</p>
               </div>
-                </div>
+            </div>
 
-                  {{/ifEquals}}
-                {{/each}}
-
+            {{/ifEquals}}
+            {{/each}}
           </div>
         </div>
       </div>
-      <div class="cell" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div
+        class="cell"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+        id="offers"
+      >
         <div class="card">
           {{!-- <img src="assets/img/generic/rectangle-1.jpg" /> --}}
           <div class="card-section">
             <h4>Offers</h4>
-                            {{#each jobs}}
-                  {{#ifEquals this.stage "Offers"}}
+            {{#each jobs}}
+            {{#ifEquals this.stage "Offers"}}
 
-                    <div
+            <div
               class="kanban card"
               draggable="true"
               ondragstart="drag(event)"
-              data-id="{{this.id}}"
+              data-id="{{ this.id }}"
             >
-                <div class="card-section">
-                    <h4>{{this.jobName}}</h4>
-                    <p>{{this.company}}</p>
-                    <p>{{this.position}}</p>
-                    <p>{{this.stage}}</p>
+              <div class="card-section">
+                <h4>{{ this.jobName }}</h4>
+                <p>{{ this.company }}</p>
+                <p>{{ this.position }}</p>
+                <p>{{ this.stage }}</p>
               </div>
-                </div>
+            </div>
 
-                  {{/ifEquals}}
-                {{/each}}
-
+            {{/ifEquals}}
+            {{/each}}
           </div>
         </div>
       </div>
-      <div class="cell" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div
+        class="cell"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+        id="rejected"
+      >
         <div class="card">
           {{!-- <img src="assets/img/generic/rectangle-1.jpg" /> --}}
           <div class="card-section">
             <h4>Rejected</h4>
-                            {{#each jobs}}
-                  {{#ifEquals this.stage "Rejected"}}
+            {{#each jobs}}
+            {{#ifEquals this.stage "Rejected"}}
 
-                    <div
+            <div
               class="kanban card"
               draggable="true"
               ondragstart="drag(event)"
-              data-id="{{this.id}}"
+              data-id="{{ this.id }}"
             >
-                <div class="card-section">
-                    <h4>{{this.jobName}}</h4>
-                    <p>{{this.company}}</p>
-                    <p>{{this.position}}</p>
-                    <p>{{this.stage}}</p>
+              <div class="card-section">
+                <h4>{{ this.jobName }}</h4>
+                <p>{{ this.company }}</p>
+                <p>{{ this.position }}</p>
+                <p>{{ this.stage }}</p>
               </div>
-                </div>
+            </div>
 
-                  {{/ifEquals}}
-                {{/each}}
-
+            {{/ifEquals}}
+            {{/each}}
           </div>
         </div>
       </div>
@@ -303,10 +328,42 @@
 
     event.currentTarget.innerHTML =
       event.currentTarget.innerHTML + event.dataTransfer.getData("text/html");
+    //console.log(event.currentTarget.lastElementChild.getAttribute("data-id"))
+    const id = event.currentTarget.lastElementChild.getAttribute("data-id");
+    const stage = event.currentTarget.lastElementChild.parentNode.getAttribute(
+      "id"
+    );
+    let newStage;
+    if (stage === "planning-to-apply") {
+      newStage = "Planning to apply";
+    } else if (stage == "applied") {
+      newStage = "Applied";
+    } else if (stage == "phone-screen") {
+      newStage = "Phone Screen";
+    } else if (stage == "on-site") {
+      newStage = "On Site";
+    } else if (stage == "offers") {
+      newStage = "Offers";
+    } else if (stage == "rejected") {
+      newStage = "Rejected";
+    }
+    console.log("NEWSTAGE: " + newStage);
+    const data = {
+      stage: newStage,
+      id: id,
+    };
+    console.log("ID: " + id);
+    $.ajax({
+      url: "api/job",
+      type: "PUT",
+      data: data,
+    }).then(function (data) {
+      console.log("successfully changed status");
+    });
   };
 
   const allowDrop = (event) => {
     event.preventDefault();
+    // console.log(event.currentTarget.lastElementChild.getAttribute("data-id"));
   };
-
 </script>
