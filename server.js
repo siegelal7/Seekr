@@ -21,14 +21,13 @@ app.engine(
     defaultLayout: "main",
     handlebars: allowInsecurePrototypeAccess(handlebars),
     helpers: {
-      ifEquals: function(a, b, opts) {
-        return (a == b) ? opts.fn(this) : opts.inverse(this);
-      }
-    }
+      ifEquals: function (a, b, opts) {
+        return a == b ? opts.fn(this) : opts.inverse(this);
+      },
+    },
   })
 );
 app.set("view engine", "handlebars");
-
 
 // TODO: SWITCH THE TWO ROUTES
 // require("./controllers/api-routes.js")(app);
