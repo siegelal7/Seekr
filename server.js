@@ -39,10 +39,6 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-// TODO: SWITCH THE TWO ROUTES
-// require("./controllers/api-routes.js")(app);
-// require("./controllers/html-routes.js")(app);
-
 const jobsRoutes = require("./controllers/jobsController");
 app.use(jobsRoutes);
 
