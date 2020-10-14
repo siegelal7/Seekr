@@ -7,33 +7,44 @@
   justify-content: center;
   text-align: center;
 }
+
 img {
   width: 100vw;
   height: 34em;
 }
 
-.image {
+.imageDiv {
   text-align: center;
   border-top: 0px;
 }
 
+.homePageChoice {
+  transition: transform 0.2s;
+}
+
+.homePageChoice:hover {
+  /* background: orange; */
+  transform: scale(1.04);
+  opacity: 1;
+}
+
 #employers {
   position: absolute;
-  right: 87%;
-  top: 44%;
-  height: 6em;
-  width: 10em;
-  /* opacity: 0.8; */
+  right: 82%;
+  top: 30%;
+  height: 16em;
+  width: 18em;
+  opacity: 0.6;
   box-shadow: 0 5px black;
 }
 
 #employees {
   position: absolute;
   right: 4%;
-  top: 44%;
-  height: 6em;
-  width: 10em;
-  /* opacity: 0.8; */
+  top: 30%;
+  height: 16em;
+  width: 18em;
+  opacity: 0.8;
   box-shadow: 0 5px black;
 }
 
