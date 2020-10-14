@@ -14,14 +14,21 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "/public")));
 // app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+
 app.engine(
   "handlebars",
   exphbs({
     defaultLayout: "main",
     handlebars: allowInsecurePrototypeAccess(handlebars),
+    helpers: {
+      ifEquals: function(a, b, opts) {
+        return (a == b) ? opts.fn(this) : opts.inverse(this);
+      }
+    }
   })
 );
 app.set("view engine", "handlebars");
+
 
 // TODO: SWITCH THE TWO ROUTES
 // require("./controllers/api-routes.js")(app);
@@ -31,7 +38,7 @@ const routes = require("./controllers/jobsController");
 app.use(routes);
 
 // db.sequelize.sync({ force: true }).then(function () {
-  db.sequelize.sync().then(function () {
+db.sequelize.sync().then(function () {
   app.listen(PORT, () => {
     console.log("Server listening on http://localhost:" + PORT);
   });
