@@ -11,7 +11,11 @@ router.get("/", (req, res) => {
 });
 
 router.get("/job-board", isAuthenticated, (req, res) => {
-  db.Job.findAll().then(function (data) {
+  db.Job.findAll({
+    where: {
+      UserId: req.user.id
+    }
+  }).then(function (data) {
     res.render("job_board", { jobs: data });
   });
 });
