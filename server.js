@@ -49,10 +49,6 @@ app.use(jobsRoutes);
 const usersRoutes = require("./controllers/usersController");
 app.use(usersRoutes);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> f74ed8f35d3c1d2e87c62ad4ed8aeb47c82c6f8c
 // db.sequelize.sync({ force: true }).then(function () {
 db.sequelize.sync().then(function () {
   app.listen(PORT, () => {
