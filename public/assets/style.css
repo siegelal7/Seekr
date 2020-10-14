@@ -92,17 +92,20 @@ img {
   overflow-y: scroll;
   background-color: rgb(250, 249, 255);
   opacity: 0.885;
+  border-radius: 5px;
 }
 
 .cell-title {
   padding-left: 30px; /* we could probably figure out a better way to center this instead of using padding */
   padding-top: 10px;
   height: 3rem;
-  border: 1px solid rgba(0, 0, 0, 0.226);
+  border: 1px solid rgba(0, 0, 0, 0.199);
   background-color: rgb(250, 249, 255);
   font-family: "Archivo", sans-serif;
   font-weight: 600;
   opacity: 0.885;
+  border-radius: 5px;
+  margin-top: 10px;
 }
 
 .grid-container {
