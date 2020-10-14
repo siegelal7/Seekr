@@ -17,6 +17,7 @@ img {
   text-align: center;
   /* border-top: 0px; */
   border: 0px;
+  background-color: #d7ecfa00;
 }
 
 .homePageChoice {
@@ -101,5 +102,5 @@ img {
 
 .grid-container {
   /* padding-bottom: -10px!important; */
-  margin-bottom: -10px;
+  /* margin-bottom: -10px; */
 }
