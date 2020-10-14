@@ -13,17 +13,30 @@
       </li>
       <li><a href="/">Home</a></li>
       <li><a href="#Item-4">About Us</a></li>
-      <li>
-        <button class="button tiny" data-open="exampleModal1">Add a job</button>
+      {{!--
+      <li style="margin: auto">
+        <a data-open="exampleModal1">Add a job</a>
       </li>
-      <li>Hi <span class="user-name"></span>!</li>
+      --}}
+      <li style="margin: auto">Hi <span class="user-name"></span>!</li>
+      <li><a href="/logout">Logout</a></li>
     </ul>
   </div>
 </div>
 
 <div class="grid-container full">
   <div class="grid-x small-up-6 medium-up-6">
-    <div class="cell cell-title">Planning to Apply</div>
+    <div class="cell cell-title" style="position: relative">
+      Planning to Apply<button
+        value="Planning to Apply"
+        id="addNewProspect"
+        data-open="exampleModal1"
+        class="button tiny"
+        style="position: absolute; right: 0; top: 0; opacity: 0.5"
+      >
+        +
+      </button>
+    </div>
     <div class="cell cell-title">Applied</div>
     <div class="cell cell-title">Phone Screen</div>
     <div class="cell cell-title">On Site</div>
@@ -49,7 +62,7 @@
           <input type="text" name="company" id="company-name" />
           <label for="position">Position:</label>
           <input type="text" name="position" id="position" />
-          <label for="stage">Stage:</label>
+          <!-- <label for="stage">Stage:</label>
           <select id="stage">
             <option value="Planning to Apply">Planning to Apply</option>
             <option value="Applied">Applied</option>
@@ -57,7 +70,7 @@
             <option value="On Site">On Site</option>
             <option value="Offers">Offers</option>
             <option value="Rejected">Rejected</option>
-          </select>
+          </select> -->
           <button
             class="button success"
             data-close
@@ -76,21 +89,6 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-
-      <!-- <div
-              class="kanban card"
-              draggable="true"
-              ondragstart="drag(event)"
-              data-id="1"
-            >
-              <div class="card-section">
-                <h4>This is a card.</h4>
-                <p>
-                  It has an easy to override visual style, and is appropriately
-                  subdued.
-                </p>
-              </div>
-            </div> -->
 
       {{#each jobs}}
       {{#ifEquals this.stage "Planning to Apply"}}
@@ -148,7 +146,6 @@
         data-id="{{ this.id }}"
         style="position: relative"
       >
-      
         <button style="margin: 0px; width: 1em" class="deleteBtn button tiny">
           X
         </button>
@@ -383,7 +380,7 @@
       >
         <span aria-hidden="true">&times;</span>
       </button>
-    </div> 
+    </div>
   </div>
 </div>
 
@@ -394,9 +391,14 @@
   crossorigin="anonymous"
 ></script>
 <script>
-  let currentUserId;
+  const addNewProspect = $("#addNewProspect");
+  let currentStage;
+  addNewProspect.on("click", function (event) {
+    currentStage = $(this).val();
+  });
 
-  $.get("/api/user_data").then(dbUser => {
+  let currentUserId;
+  $.get("/api/user_data").then((dbUser) => {
     currentUserId = dbUser.id;
   });
   //event listener for add new job btn
@@ -409,8 +411,8 @@
       jobName: $("#job-title").val().trim(),
       company: $("#company-name").val().trim(),
       position: $("#position").val().trim(),
-      stage: $("#stage").val().trim(),
-      UserId: currentUserId
+      stage: currentStage,
+      UserId: currentUserId,
     };
     $.ajax({
       type: "POST",
@@ -423,16 +425,17 @@
     //not sure this is the best solution to hide it
     // newJobModal.attr("style", "display:none");
   });
+  let targetTitle;
   let targetId;
-  const editBtn=$(".updateBtn");
-  editBtn.on("click", function(event){
+  const editBtn = $(".updateBtn");
+  editBtn.on("click", function (event) {
+    console.log(event.target.parentNode.parentNode.childNodes[2]);
     //console.log(event.target.parentNode.getAttribute("data-id"));
     targetId = event.target.parentNode.getAttribute("data-id");
     //console.log(targetId);
   });
 
   //update form submit event listener
-  //FIXME: this is wrong
   const editForm = $("#editForm");
   editForm.on("submit", (event) => {
     event.preventDefault();
@@ -447,14 +450,14 @@
       stage: $("#stage-edit").val().trim(),
       id: targetId,
     };
-     $.ajax({
-       url: "api/job",
-       method: "PUT",
-       data: obj,
-     }).then(function (response) {
-       console.log("successfully updated entry");
-       location.reload();
-     });
+    $.ajax({
+      url: "api/job",
+      method: "PUT",
+      data: obj,
+    }).then(function (response) {
+      console.log("successfully updated entry");
+      location.reload();
+    });
   });
 
   //delete btn event listener
@@ -553,7 +556,7 @@
     // console.log(event.currentTarget.lastElementChild.getAttribute("data-id"));
   };
 
-  $.get("/api/user_data").then(dbUser => {
+  $.get("/api/user_data").then((dbUser) => {
     $(".user-name").text(dbUser.firstName);
   });
 </script>

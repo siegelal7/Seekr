@@ -1,5 +1,5 @@
 .header {
-  background: #d7ecfa;
+  /* background: #d7ecfa; */
 }
 
 .top-card {
@@ -9,13 +9,15 @@
 }
 
 img {
-  width: 100vw;
-  height: 34em;
+  width: auto;
+  height: auto;
 }
 
 .imageDiv {
   text-align: center;
-  border-top: 0px;
+  /* border-top: 0px; */
+  border: 0px;
+  background-color: #d7ecfa00;
 }
 
 .homePageChoice {
@@ -32,20 +34,23 @@ img {
   position: absolute;
   right: 82%;
   top: 30%;
-  height: 16em;
-  width: 18em;
-  opacity: 0.6;
-  box-shadow: 0 5px black;
+  height: 12em;
+  width: 15em;
+  opacity: 0.8;
+  box-shadow: 0 10px black;
+  border-radius: 5px;
 }
 
 #employees {
   position: absolute;
   right: 4%;
   top: 30%;
-  height: 16em;
-  width: 18em;
+  height: 12em;
+  width: 15em;
   opacity: 0.8;
-  box-shadow: 0 5px black;
+  box-shadow: 0 10px black;
+  border-radius: 5px;
+
 }
 
 .kanban {
@@ -97,5 +102,5 @@ img {
 
 .grid-container {
   /* padding-bottom: -10px!important; */
-  margin-bottom: -10px;
+  /* margin-bottom: -10px; */
 }
