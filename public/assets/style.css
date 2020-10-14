@@ -63,15 +63,11 @@ img {
   transform: scale(0.8);
 }
 
-<<<<<<< HEAD
-#add-button {
-  margin-left: 26%;
-}
-
-#stageHover:hover {
+#deleteBtn:hover {
+  display: block;
   cursor: pointer;
 }
-=======
+
 /* Styling for each column in the job_board.handlebars page */
 .cell-col {
   margin-top: 10px;
@@ -88,7 +84,7 @@ img {
   height: 3rem;
   border: 1px solid rgba(0, 0, 0, 0.226);
   background-color: rgb(250, 249, 255);
-  font-family: 'Archivo', sans-serif;
+  font-family: "Archivo", sans-serif;
   font-weight: 600;
 }
 
@@ -96,5 +92,3 @@ img {
   /* padding-bottom: -10px!important; */
   margin-bottom: -10px;
 }
-
->>>>>>> 7548c2d88ac81943e001932ec169e67a484a71ba

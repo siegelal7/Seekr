@@ -102,6 +102,9 @@
         ondragstart="drag(event)"
         data-id="{{ this.id }}"
       >
+        <button style="margin: 0px; width: 1em" class="deleteBtn button tiny">
+          X
+        </button>
         <div class="card-section">
           <h4>{{ this.jobName }}</h4>
           <p>{{ this.company }}</p>
@@ -128,6 +131,10 @@
         ondragstart="drag(event)"
         data-id="{{ this.id }}"
       >
+        <button style="margin: 0px; width: 1em" class="deleteBtn button tiny">
+          X
+        </button>
+
         <div class="card-section">
           <h4>{{ this.jobName }}</h4>
           <p>{{ this.company }}</p>
@@ -154,6 +161,9 @@
         ondragstart="drag(event)"
         data-id="{{ this.id }}"
       >
+        <button style="margin: 0px; width: 1em" class="deleteBtn button tiny">
+          X
+        </button>
         <div class="card-section">
           <h4>{{ this.jobName }}</h4>
           <p>{{ this.company }}</p>
@@ -179,6 +189,9 @@
         ondragstart="drag(event)"
         data-id="{{ this.id }}"
       >
+        <button style="margin: 0px; width: 1em" class="deleteBtn button tiny">
+          X
+        </button>
         <div class="card-section">
           <h4>{{ this.jobName }}</h4>
           <p>{{ this.company }}</p>
@@ -205,6 +218,9 @@
         ondragstart="drag(event)"
         data-id="{{ this.id }}"
       >
+        <button style="margin: 0px; width: 1em" class="deleteBtn button tiny">
+          X
+        </button>
         <div class="card-section">
           <h4>{{ this.jobName }}</h4>
           <p>{{ this.company }}</p>
@@ -231,6 +247,9 @@
         ondragstart="drag(event)"
         data-id="{{ this.id }}"
       >
+        <button style="margin: 0px; width: 1em" class="deleteBtn button tiny">
+          X
+        </button>
         <div class="card-section">
           <h4>{{ this.jobName }}</h4>
           <p>{{ this.company }}</p>
@@ -274,6 +293,20 @@
     });
     //not sure this is the best solution to hide it
     // newJobModal.attr("style", "display:none");
+  });
+
+  //delete btn event listener
+  const deleteBtn = $(".deleteBtn");
+  deleteBtn.on("click", function (event) {
+    targetId = event.currentTarget.parentNode.getAttribute("data-id");
+    $.ajax({
+      url: `api/job/${targetId}`,
+      type: "DELETE",
+      data: { id: targetId },
+    }).then(function (response) {
+      console.log("successfully deleted " + targetId + " job");
+      location.reload();
+    });
   });
 
   const dragStart = (event) => {
