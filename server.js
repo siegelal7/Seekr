@@ -33,8 +33,12 @@ app.set("view engine", "handlebars");
 // require("./controllers/api-routes.js")(app);
 // require("./controllers/html-routes.js")(app);
 
-const routes = require("./controllers/jobsController");
-app.use(routes);
+const jobsRoutes = require("./controllers/jobsController");
+app.use(jobsRoutes);
+
+const usersRoutes = require("./controllers/usersController");
+app.use(usersRoutes);
+
 
 db.sequelize.sync({ force: true }).then(function () {
 // db.sequelize.sync().then(function () {
