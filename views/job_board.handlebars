@@ -29,19 +29,63 @@
     <div class="cell cell-title" style="position: relative">
       Planning to Apply<button
         value="Planning to Apply"
-        id="addNewProspect"
         data-open="exampleModal1"
-        class="button tiny"
+        class="addNewProspect button tiny"
         style="position: absolute; right: 0; top: 0; opacity: 0.5"
       >
         +
       </button>
     </div>
-    <div class="cell cell-title">Applied</div>
-    <div class="cell cell-title">Phone Screen</div>
-    <div class="cell cell-title">On Site</div>
-    <div class="cell cell-title">Offers</div>
-    <div class="cell cell-title">Rejected</div>
+    <div class="cell cell-title" style="position: relative">
+      Applied<button
+        value="Applied"
+        data-open="exampleModal1"
+        class="addNewProspect button tiny"
+        style="position: absolute; right: 0; top: 0; opacity: 0.5"
+      >
+        +
+      </button>
+    </div>
+    <div class="cell cell-title" style="position: relative">
+      Phone Screen<button
+        value="Phone Screen"
+        data-open="exampleModal1"
+        class="addNewProspect button tiny"
+        style="position: absolute; right: 0; top: 0; opacity: 0.5"
+      >
+        +
+      </button>
+    </div>
+    <div class="cell cell-title" style="position: relative">
+      On Site<button
+        value="On Site"
+        data-open="exampleModal1"
+        class="addNewProspect button tiny"
+        style="position: absolute; right: 0; top: 0; opacity: 0.5"
+      >
+        +
+      </button>
+    </div>
+    <div class="cell cell-title" style="position: relative">
+      Offers<button
+        value="Offers"
+        data-open="exampleModal1"
+        class="addNewProspect button tiny"
+        style="position: absolute; right: 0; top: 0; opacity: 0.5"
+      >
+        +
+      </button>
+    </div>
+    <div class="cell cell-title" style="position: relative">
+      Rejected<button
+        value="Rejected"
+        data-open="exampleModal1"
+        class="addNewProspect button tiny"
+        style="position: absolute; right: 0; top: 0; opacity: 0.5"
+      >
+        +
+      </button>
+    </div>
   </div>
 </div>
 
@@ -391,7 +435,7 @@
   crossorigin="anonymous"
 ></script>
 <script>
-  const addNewProspect = $("#addNewProspect");
+  const addNewProspect = $(".addNewProspect");
   let currentStage;
   addNewProspect.on("click", function (event) {
     currentStage = $(this).val();
@@ -429,7 +473,7 @@
   let targetId;
   const editBtn = $(".updateBtn");
   editBtn.on("click", function (event) {
-    console.log(event.target.parentNode.parentNode.childNodes[2]);
+    console.log(event.target.parentNode.parentNode.childNodes);
     //console.log(event.target.parentNode.getAttribute("data-id"));
     targetId = event.target.parentNode.getAttribute("data-id");
     //console.log(targetId);
