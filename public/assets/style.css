@@ -1,5 +1,6 @@
 .header {
-  /* background: #d7ecfa; */
+  background: #d7ecfa;
+  opacity: 0.875;
 }
 
 .top-card {
@@ -11,6 +12,8 @@
 img {
   width: auto;
   height: auto;
+  box-shadow: 0 0 8px 8px white inset;
+
 }
 
 .imageDiv {
@@ -37,7 +40,7 @@ img {
   height: 12em;
   width: 15em;
   opacity: 0.8;
-  box-shadow: 0 10px black;
+  box-shadow: 0 5px rgb(19, 32, 102);
   border-radius: 5px;
 }
 
@@ -48,7 +51,7 @@ img {
   height: 12em;
   width: 15em;
   opacity: 0.8;
-  box-shadow: 0 10px black;
+  box-shadow: 0 5px rgb(19, 32, 102);
   border-radius: 5px;
 
 }
@@ -88,6 +91,7 @@ img {
   padding: 10px;
   overflow-y: scroll;
   background-color: rgb(250, 249, 255);
+  opacity: 0.885;
 }
 
 .cell-title {
@@ -98,6 +102,7 @@ img {
   background-color: rgb(250, 249, 255);
   font-family: "Archivo", sans-serif;
   font-weight: 600;
+  opacity: 0.885;
 }
 
 .grid-container {
