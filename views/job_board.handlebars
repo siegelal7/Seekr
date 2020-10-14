@@ -14,42 +14,32 @@
       <li><a href="/">Home</a></li>
       <li><a href="#Item-4">About Us</a></li>
       <li>
-        <button class="button tiny" data-open="exampleModal1">
-        Add a job
-      </button>
+        <button class="button tiny" data-open="exampleModal1">Add a job</button>
       </li>
+      <li>Hi <span class="user-name"></span>!</li>
     </ul>
   </div>
 </div>
 
 <div class="grid-container full">
   <div class="grid-x small-up-6 medium-up-6">
-    <div class="cell cell-title">
-      Planning to Apply
-    </div>
-    <div class="cell cell-title">
-      Applied
-    </div>
-    <div class="cell cell-title">
-      Phone Screen
-    </div>
-    <div class="cell cell-title">
-      On Site
-    </div>
-    <div class="cell cell-title">
-      Offers
-    </div>
-    <div class="cell cell-title">
-      Rejected
-    </div>
+    <div class="cell cell-title">Planning to Apply</div>
+    <div class="cell cell-title">Applied</div>
+    <div class="cell cell-title">Phone Screen</div>
+    <div class="cell cell-title">On Site</div>
+    <div class="cell cell-title">Offers</div>
+    <div class="cell cell-title">Rejected</div>
   </div>
 </div>
 
-
 <div class="grid-container full">
   <div class="grid-x small-up-6 medium-up-6">
-    <div class="cell cell-col" ondrop="drop(event)" ondragover="allowDrop(event)" id="planning-to-apply">
-
+    <div
+      class="cell cell-col"
+      ondrop="drop(event)"
+      ondragover="allowDrop(event)"
+      id="planning-to-apply"
+    >
       <!-- hidden modal -->
       <div class="reveal" id="exampleModal1" data-reveal>
         <form id="submit-new-job-form" action="">
@@ -68,13 +58,23 @@
             <option value="Offers">Offers</option>
             <option value="Rejected">Rejected</option>
           </select>
-          <button class="button success" data-close aria-label="Close modal" id="submit-new-job">
+          <button
+            class="button success"
+            data-close
+            aria-label="Close modal"
+            id="submit-new-job"
+          >
             Submit
           </button>
         </form>
-        {{!-- <button class="close-button" data-close aria-label="Close modal" type="button">
-                <span aria-hidden="true">&times;</span>
-              </button> --}}
+        <button
+          class="close-button"
+          data-close
+          aria-label="Close modal"
+          type="button"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
 
       <!-- <div
@@ -95,7 +95,32 @@
       {{#each jobs}}
       {{#ifEquals this.stage "Planning to Apply"}}
 
-      <div class="kanban card" draggable="true" ondragstart="drag(event)" data-id="{{ this.id }}">
+      <div
+        class="kanban card"
+        draggable="true"
+        ondragstart="drag(event)"
+        data-id="{{ this.id }}"
+        style="position: relative"
+      >
+        <button
+          style="margin-bottom: 0px; width: 3em"
+          class="deleteBtn button tiny"
+        >
+          X
+        </button>
+        <button
+          style="
+            margin-bottom: 0px;
+            width: fit-content;
+            position: absolute;
+            top: 0;
+            right: 0;
+          "
+          class="updateBtn button tiny"
+          data-open="editModal"
+        >
+          Edit
+        </button>
         <div class="card-section">
           <h4>{{ this.jobName }}</h4>
           <p>{{ this.company }}</p>
@@ -107,11 +132,39 @@
       {{/ifEquals}}
       {{/each}}
     </div>
-    <div class="cell cell-col" ondrop="drop(event)" ondragover="allowDrop(event)" id="applied">
+    <div
+      class="cell cell-col"
+      ondrop="drop(event)"
+      ondragover="allowDrop(event)"
+      id="applied"
+    >
       {{#each jobs}}
       {{#ifEquals this.stage "Applied"}}
 
-      <div class="kanban card" draggable="true" ondragstart="drag(event)" data-id="{{ this.id }}">
+      <div
+        class="kanban card"
+        draggable="true"
+        ondragstart="drag(event)"
+        data-id="{{ this.id }}"
+        style="position: relative"
+      >
+      
+        <button style="margin: 0px; width: 1em" class="deleteBtn button tiny">
+          X
+        </button>
+        <button
+          style="
+            margin-bottom: 0px;
+            width: fit-content;
+            position: absolute;
+            top: 0;
+            right: 0;
+          "
+          class="updateBtn button tiny"
+          data-open="editModal"
+        >
+          Edit
+        </button>
         <div class="card-section">
           <h4>{{ this.jobName }}</h4>
           <p>{{ this.company }}</p>
@@ -123,11 +176,38 @@
       {{/ifEquals}}
       {{/each}}
     </div>
-    <div class="cell cell-col" ondrop="drop(event)" ondragover="allowDrop(event)" id="phone-screen">
+    <div
+      class="cell cell-col"
+      ondrop="drop(event)"
+      ondragover="allowDrop(event)"
+      id="phone-screen"
+    >
       {{#each jobs}}
       {{#ifEquals this.stage "Phone Screen"}}
 
-      <div class="kanban card" draggable="true" ondragstart="drag(event)" data-id="{{ this.id }}">
+      <div
+        class="kanban card"
+        draggable="true"
+        ondragstart="drag(event)"
+        data-id="{{ this.id }}"
+        style="position: relative"
+      >
+        <button style="margin: 0px; width: 1em" class="deleteBtn button tiny">
+          X
+        </button>
+        <button
+          style="
+            margin-bottom: 0px;
+            width: fit-content;
+            position: absolute;
+            top: 0;
+            right: 0;
+          "
+          class="updateBtn button tiny"
+          data-open="editModal"
+        >
+          Edit
+        </button>
         <div class="card-section">
           <h4>{{ this.jobName }}</h4>
           <p>{{ this.company }}</p>
@@ -139,10 +219,37 @@
       {{/ifEquals}}
       {{/each}}
     </div>
-    <div class="cell cell-col" ondrop="drop(event)" ondragover="allowDrop(event)" id="on-site">
+    <div
+      class="cell cell-col"
+      ondrop="drop(event)"
+      ondragover="allowDrop(event)"
+      id="on-site"
+    >
       {{#each jobs}}
       {{#ifEquals this.stage "On Site"}}
-      <div class="kanban card" draggable="true" ondragstart="drag(event)" data-id="{{ this.id }}">
+      <div
+        class="kanban card"
+        draggable="true"
+        ondragstart="drag(event)"
+        data-id="{{ this.id }}"
+        style="position: relative"
+      >
+        <button style="margin: 0px; width: 1em" class="deleteBtn button tiny">
+          X
+        </button>
+        <button
+          style="
+            margin-bottom: 0px;
+            width: fit-content;
+            position: absolute;
+            top: 0;
+            right: 0;
+          "
+          class="updateBtn button tiny"
+          data-open="editModal"
+        >
+          Edit
+        </button>
         <div class="card-section">
           <h4>{{ this.jobName }}</h4>
           <p>{{ this.company }}</p>
@@ -154,11 +261,38 @@
       {{/ifEquals}}
       {{/each}}
     </div>
-    <div class="cell cell-col" ondrop="drop(event)" ondragover="allowDrop(event)" id="offers">
+    <div
+      class="cell cell-col"
+      ondrop="drop(event)"
+      ondragover="allowDrop(event)"
+      id="offers"
+    >
       {{#each jobs}}
       {{#ifEquals this.stage "Offers"}}
 
-      <div class="kanban card" draggable="true" ondragstart="drag(event)" data-id="{{ this.id }}">
+      <div
+        class="kanban card"
+        draggable="true"
+        ondragstart="drag(event)"
+        data-id="{{ this.id }}"
+        style="position: relative"
+      >
+        <button style="margin: 0px; width: 1em" class="deleteBtn button tiny">
+          X
+        </button>
+        <button
+          style="
+            margin-bottom: 0px;
+            width: fit-content;
+            position: absolute;
+            top: 0;
+            right: 0;
+          "
+          class="updateBtn button tiny"
+          data-open="editModal"
+        >
+          Edit
+        </button>
         <div class="card-section">
           <h4>{{ this.jobName }}</h4>
           <p>{{ this.company }}</p>
@@ -170,11 +304,38 @@
       {{/ifEquals}}
       {{/each}}
     </div>
-    <div class="cell cell-col" ondrop="drop(event)" ondragover="allowDrop(event)" id="rejected">
+    <div
+      class="cell cell-col"
+      ondrop="drop(event)"
+      ondragover="allowDrop(event)"
+      id="rejected"
+    >
       {{#each jobs}}
       {{#ifEquals this.stage "Rejected"}}
 
-      <div class="kanban card" draggable="true" ondragstart="drag(event)" data-id="{{ this.id }}">
+      <div
+        class="kanban card"
+        draggable="true"
+        ondragstart="drag(event)"
+        data-id="{{ this.id }}"
+        style="position: relative"
+      >
+        <button style="margin: 0px; width: 1em" class="deleteBtn button tiny">
+          X
+        </button>
+        <button
+          style="
+            margin-bottom: 0px;
+            width: fit-content;
+            position: absolute;
+            top: 0;
+            right: 0;
+          "
+          class="updateBtn button tiny"
+          data-open="editModal"
+        >
+          Edit
+        </button>
         <div class="card-section">
           <h4>{{ this.jobName }}</h4>
           <p>{{ this.company }}</p>
@@ -186,24 +347,70 @@
       {{/ifEquals}}
       {{/each}}
     </div>
+    <!-- FIXME: not sure if this is correct locaiton -->
+    <div class="reveal" id="editModal" data-reveal>
+      <h1>Edit Prospective Job</h1>
+      <form id="editForm" action="">
+        <label for="title">Job Title:</label>
+        <input type="text" name="title" id="job-title-edit" />
+        <label for="company">Company Name:</label>
+        <input type="text" name="company" id="company-name-edit" />
+        <label for="position">Position:</label>
+        <input type="text" name="position" id="position-edit" />
+        <label for="stage">Stage:</label>
+        <select id="stage-edit">
+          <option value="Planning to Apply">Planning to Apply</option>
+          <option value="Applied">Applied</option>
+          <option value="Phone Screen">Phone Screen</option>
+          <option value="On Site">On Site</option>
+          <option value="Offers">Offers</option>
+          <option value="Rejected">Rejected</option>
+        </select>
+        <button
+          class="button success"
+          data-close
+          aria-label="Close modal"
+          id="edit-submit"
+        >
+          Submit
+        </button>
+      </form>
+      <button
+        class="close-button"
+        data-close
+        aria-label="Close modal"
+        type="button"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div> 
   </div>
 </div>
 
 <!-- had to import jquery here for it to work for some reason.. -->
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"
-  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"
+></script>
 <script>
+  let currentUserId;
+
+  $.get("/api/user_data").then(dbUser => {
+    currentUserId = dbUser.id;
+  });
   //event listener for add new job btn
   const newJobModal = $("#exampleModal1");
   const addJob = $("#submit-new-job-form");
+
   addJob.on("submit", function (event) {
     event.preventDefault();
-    console.log("test");
     const obj = {
       jobName: $("#job-title").val().trim(),
       company: $("#company-name").val().trim(),
       position: $("#position").val().trim(),
       stage: $("#stage").val().trim(),
+      UserId: currentUserId
     };
     $.ajax({
       type: "POST",
@@ -215,6 +422,53 @@
     });
     //not sure this is the best solution to hide it
     // newJobModal.attr("style", "display:none");
+  });
+  let targetId;
+  const editBtn=$(".updateBtn");
+  editBtn.on("click", function(event){
+    //console.log(event.target.parentNode.getAttribute("data-id"));
+    targetId = event.target.parentNode.getAttribute("data-id");
+    //console.log(targetId);
+  });
+
+  //update form submit event listener
+  //FIXME: this is wrong
+  const editForm = $("#editForm");
+  editForm.on("submit", (event) => {
+    event.preventDefault();
+    // console.log(targetId);
+    // console.log("clicked");
+    // const currentId = event.currentTarget.parentNode.getAttribute("data-id");
+    // console.log(currentId);
+    const obj = {
+      jobName: $("#job-title-edit").val().trim(),
+      company: $("#company-name-edit").val().trim(),
+      position: $("#position-edit").val().trim(),
+      stage: $("#stage-edit").val().trim(),
+      id: targetId,
+    };
+     $.ajax({
+       url: "api/job",
+       method: "PUT",
+       data: obj,
+     }).then(function (response) {
+       console.log("successfully updated entry");
+       location.reload();
+     });
+  });
+
+  //delete btn event listener
+  const deleteBtn = $(".deleteBtn");
+  deleteBtn.on("click", function (event) {
+    targetId = event.currentTarget.parentNode.getAttribute("data-id");
+    $.ajax({
+      url: `api/job/${targetId}`,
+      type: "DELETE",
+      data: { id: targetId },
+    }).then(function (response) {
+      console.log("successfully deleted " + targetId + " job");
+      location.reload();
+    });
   });
 
   const dragStart = (event) => {
@@ -298,4 +552,8 @@
     event.preventDefault();
     // console.log(event.currentTarget.lastElementChild.getAttribute("data-id"));
   };
+
+  $.get("/api/user_data").then(dbUser => {
+    $(".user-name").text(dbUser.firstName);
+  });
 </script>

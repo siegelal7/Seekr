@@ -53,9 +53,16 @@ img {
 }
 
 .kanban {
+  background: black;
   cursor: grab;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 10px;
+}
+
+.card-section {
+  text-align: center;
+  padding: 0rem;
+  background: #d7ecfa;
 }
 
 .kanban:active {
@@ -65,6 +72,11 @@ img {
 .kanban.dragging {
   opacity: 0.5;
   transform: scale(0.8);
+}
+
+#deleteBtn:hover {
+  display: block;
+  cursor: pointer;
 }
 
 /* Styling for each column in the job_board.handlebars page */
@@ -83,7 +95,7 @@ img {
   height: 3rem;
   border: 1px solid rgba(0, 0, 0, 0.226);
   background-color: rgb(250, 249, 255);
-  font-family: 'Archivo', sans-serif;
+  font-family: "Archivo", sans-serif;
   font-weight: 600;
 }
 
@@ -91,4 +103,3 @@ img {
   /* padding-bottom: -10px!important; */
   margin-bottom: -10px;
 }
-
