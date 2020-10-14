@@ -3,9 +3,23 @@ const router = express.Router();
 const db = require("../models");
 const passport = require("../config/passport");
 
+// Requiring our custom middleware for checking if a user is logged in TODO: could probbably delete here sinces its not being used
+const isAuthenticated = require("../config/middleware/isAuthenticated");
 
+//========================VIEW ROUTES============================
+router.get("/signup", (req, res) => {
+    if(req.user) {
+        res.redirect("/index");
+    }
+    res.render("signup");
+});
 
-
+router.get("/login", (req, res) => {
+    if(req.user) {
+        res.redirect("/");
+    }
+    res.render("login");
+})
 
 
 //========================API ROUTES==============================
