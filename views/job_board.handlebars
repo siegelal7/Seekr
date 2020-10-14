@@ -23,7 +23,7 @@
       <div class="cell" ondrop="drop(event)" ondragover="allowDrop(event)" id="planning-to-apply">
         <div class="card">
           <div class="card-section">
-            <h4>Planning to apply</h4>
+            <h4>Planning to Apply</h4>
             <p>
               <button class="button tiny" data-open="exampleModal1">
                 Add a job
@@ -40,14 +40,21 @@
                 <label for="position">Position:</label>
                 <input type="text" name="position" id="position" />
                 <label for="stage">Stage:</label>
-                <input type="text" name="stage" id="stage" />
-                <button class="button success" id="submit-new-job">
+                <select id="stage">
+                  <option value="Planning to Apply">Planning to Apply</option>
+                  <option value="Applied">Applied</option>
+                  <option value="Phone Screen">Phone Screen</option>
+                  <option value="On Site">On Site</option>
+                  <option value="Offers">Offers</option>
+                  <option value="Rejected">Rejected</option>
+                </select>
+                <button class="button success" data-close aria-label="Close modal" id="submit-new-job">
                   Submit
                 </button>
               </form>
-              <button class="close-button" data-close aria-label="Close modal" type="button">
+              {{!-- <button class="close-button" data-close aria-label="Close modal" type="button">
                 <span aria-hidden="true">&times;</span>
-              </button>
+              </button> --}}
             </div>
 
             <!-- <div
@@ -67,7 +74,7 @@
           </div>
         </div>
         {{#each jobs}}
-        {{#ifEquals this.stage "Planning to apply"}}
+        {{#ifEquals this.stage "Planning to Apply"}}
 
         <div class="kanban card" draggable="true" ondragstart="drag(event)" data-id="{{ this.id }}">
           <div class="card-section">
@@ -212,6 +219,7 @@
       data: obj,
     }).then(function (data) {
       console.log(data);
+      location.reload();
     });
     //not sure this is the best solution to hide it
     // newJobModal.attr("style", "display:none");
@@ -266,7 +274,7 @@
     );
     let newStage;
     if (stage === "planning-to-apply") {
-      newStage = "Planning to apply";
+      newStage = "Planning to Apply";
     } else if (stage == "applied") {
       newStage = "Applied";
     } else if (stage == "phone-screen") {
