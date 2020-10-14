@@ -61,3 +61,11 @@ img {
   opacity: 0.5;
   transform: scale(0.8);
 }
+
+#add-button {
+  margin-left: 26%;
+}
+
+#stageHover:hover {
+  cursor: pointer;
+}

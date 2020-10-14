@@ -13,6 +13,9 @@
       </li>
       <li><a href="/">Home</a></li>
       <li><a href="#Item-4">About Us</a></li>
+      <span id="add-button"
+        ><a data-open="exampleModal1"> Add a Prospect </a></span
+      >
     </ul>
   </div>
 </div>
@@ -28,12 +31,15 @@
       >
         <div class="card">
           <div class="card-section">
+            <!-- <button
+              class="button tiny"
+              data-open="exampleModal1"
+              id="add-button"
+            >
+              +
+            </button> -->
+
             <h4>Planning to apply</h4>
-            <p>
-              <button class="button tiny" data-open="exampleModal1">
-                Add a job
-              </button>
-            </p>
 
             <!-- hidden modal -->
             <div class="reveal" id="exampleModal1" data-reveal>
@@ -46,6 +52,7 @@
                 <input type="text" name="position" id="position" />
                 <label for="stage">Stage:</label>
                 <input type="text" name="stage" id="stage" />
+
                 <button class="button success" id="submit-new-job">
                   Submit
                 </button>
