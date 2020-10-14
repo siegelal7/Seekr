@@ -6,7 +6,7 @@ const db = require("../models");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 //========================VIEW ROUTES============================
-router.get("/", isAuthenticated,(req, res) => {
+router.get("/", (req, res) => {
   res.render("index");
 });
 
