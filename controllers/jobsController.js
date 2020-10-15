@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
+// var Plotly = require("/assets/js/stats.js");
 
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -21,19 +22,32 @@ router.get("/job-board", isAuthenticated, (req, res) => {
   });
 });
 
+router.get("/favorites", isAuthenticated, (req, res) => {
+  db.Job.findAll({
+    where: {
+      UserId: req.user.id,
+    },
+  }).then(function (data) {
+    // console.log(data[0].dataValues);
+    // var test = await determineStage(data);
+    // console.log("TESST " + test);
+    res.render("favorites", { jobs: data, style: "style.css" });
+  });
+});
+
 //FIXME:
-// router.get("/stats", isAuthenticated, (req, res) => {
-//   db.Job.findAll({
-//     where: {
-//       UserId: req.user.id,
-//     },
-//   }).then(async function (data) {
-//     // console.log(data[0].dataValues);
-//     var test = await determineStage(data);
-//     // console.log("TESST " + test);
-//     res.render("statistics", { jobs: test, style: "style.css" });
-//   });
-// });
+router.get("/stats", isAuthenticated, (req, res) => {
+  db.Job.findAll({
+    where: {
+      UserId: req.user.id,
+    },
+  }).then(function (data) {
+    // console.log(data[0].dataValues);
+    // var test = await determineStage(data);
+    // console.log("TESST " + test);
+    res.render("statistics", { jobs: data, style: "style.css" });
+  });
+});
 
 // async function determineStage(data) {
 //   return new Promise((res, rej) => {

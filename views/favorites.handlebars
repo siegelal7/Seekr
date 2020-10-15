@@ -24,11 +24,11 @@
     </ul>
   </div>
 </div>
-<!-- <div id="graphDiv"></div> -->
+
 <div class="grid-container">
   <div class="grid-x grid-margin-x small-up-2 medium-up-3">
     {{#each jobs}}
-
+    {{#if starred}}
     <div class="cell">
       <div class="card">
         <div class="card-divider"></div>
@@ -40,11 +40,10 @@
         </div>
       </div>
     </div>
-
+    {{/if}}
     {{/each}}
   </div>
 </div>
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script src="/assets/js/stats.js"></script>
 <script src="/assets/js/particlesHomePage.js"></script>
