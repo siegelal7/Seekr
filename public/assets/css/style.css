@@ -1,8 +1,50 @@
-body {
+/* body {
   background-image: url("https://thumbs.dreamstime.com/z/molecule-communication-network-background-molecule-communication-network-background-isolated-white-background-108101330.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+} */
+
+
+/* ---- reset ---- */
+body {
+  margin: 0;
+  font: normal 75% Arial, Helvetica, sans-serif;
 }
+canvas {
+  display: block;
+  /* vertical-align: bottom; */
+}
+/* ---- particles.js container ---- */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #416279;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  z-index: -10;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .header {
   background: #8cb7d3;
@@ -13,7 +55,8 @@ body {
   margin-top: 1%;
   justify-content: center;
   text-align: center;
-  background: #8cb7d3;
+  background: #8cb7d3!important;
+  opacity: 0.875;
 }
 
 img {
