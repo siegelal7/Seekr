@@ -18,7 +18,6 @@ $(document).ready(function () {
     const obj = {
       jobName: $("#job-title").val().trim(),
       company: $("#company-name").val().trim(),
-      position: $("#position").val().trim(),
       stage: currentStage,
       UserId: currentUserId,
     };
@@ -65,7 +64,6 @@ $(document).ready(function () {
     const obj = {
       jobName: $("#job-title-edit").val().trim(),
       company: $("#company-name-edit").val().trim(),
-      position: $("#position-edit").val().trim(),
       stage: $("#stage-edit").val().trim(),
       id: targetId,
     };
