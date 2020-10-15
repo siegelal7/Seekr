@@ -1,11 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
-    "password": "Qazwsxedc!23",
-=======
     "password": "Gobraves",
->>>>>>> 3e5fad12c5c2c6e6d2ff9c601bbd7a79227448b0
     "database": "job_search_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
