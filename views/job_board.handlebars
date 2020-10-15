@@ -105,8 +105,8 @@
           <input type="text" name="title" id="job-title" />
           <label for="company">Company Name:</label>
           <input type="text" name="company" id="company-name" />
-          <label for="position">Position:</label>
-          <input type="text" name="position" id="position" />
+          {{!-- <label for="position">Position:</label>
+          <input type="text" name="position" id="position" /> --}}
           <!-- <label for="stage">Stage:</label>
           <select id="stage">
             <option value="Planning to Apply">Planning to Apply</option>
@@ -167,8 +167,7 @@
         <div class="card-section">
           <h4>{{ this.jobName }}</h4>
           <p class="currentCompany">{{ this.company }}</p>
-          <p class="currentPos">{{ this.position }}</p>
-          <p class="currentStage">{{ this.stage }}</p>
+          <p class="currentStage" style="display:none">{{ this.stage }}</p>
         </div>
       </div>
 
@@ -210,8 +209,7 @@
         <div class="card-section">
           <h4>{{ this.jobName }}</h4>
           <p class="currentCompany">{{ this.company }}</p>
-          <p class="currentPos">{{ this.position }}</p>
-          <p class="currentStage">{{ this.stage }}</p>
+          <p class="currentStage" style="display:none">{{ this.stage }}</p>
         </div>
       </div>
 
@@ -253,8 +251,7 @@
         <div class="card-section">
           <h4>{{ this.jobName }}</h4>
           <p class="currentCompany">{{ this.company }}</p>
-          <p class="currentPos">{{ this.position }}</p>
-          <p class="currentStage">{{ this.stage }}</p>
+          <p class="currentStage" style="display:none">{{ this.stage }}</p>
         </div>
       </div>
 
@@ -295,8 +292,7 @@
         <div class="card-section">
           <h4>{{ this.jobName }}</h4>
           <p class="currentCompany">{{ this.company }}</p>
-          <p class="currentPos">{{ this.position }}</p>
-          <p class="currentStage">{{ this.stage }}</p>
+          <p class="currentStage" style="display:none">{{ this.stage }}</p>
         </div>
       </div>
 
@@ -338,8 +334,7 @@
         <div class="card-section">
           <h4>{{ this.jobName }}</h4>
           <p class="currentCompany">{{ this.company }}</p>
-          <p class="currentPos">{{ this.position }}</p>
-          <p class="currentStage">{{ this.stage }}</p>
+          <p class="currentStage" style="display:none">{{ this.stage }}</p>
         </div>
       </div>
 
@@ -374,7 +369,7 @@
             right: 0;
           "
           class="updateBtn button tiny"
-          {{!-- data-open="editModal" --}}
+          data-open="editModal"
         
         >
           Edit
@@ -382,8 +377,7 @@
         <div class="card-section">
           <h4>{{ this.jobName }}</h4>
           <p class="currentCompany">{{ this.company }}</p>
-          <p class="currentPos">{{ this.position }}</p>
-          <p class="currentStage">{{ this.stage }}</p>
+          <p class="currentStage" style="display:none">{{ this.stage }}</p>
         </div>
       </div>
 
@@ -398,8 +392,6 @@
         <input type="text" name="title" id="job-title-edit" />
         <label for="company">Company Name:</label>
         <input type="text" name="company" id="company-name-edit" />
-        <label for="position">Position:</label>
-        <input type="text" name="position" id="position-edit" />
         <label for="stage">Stage:</label>
         <select id="stage-edit">
           <option value="Planning to Apply">Planning to Apply</option>
