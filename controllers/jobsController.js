@@ -7,17 +7,21 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 //========================VIEW ROUTES============================
 router.get("/", (req, res) => {
-  res.render("index", {style: "style.css"});
+  res.render("index", { style: "style.css" });
 });
 
 router.get("/job-board", isAuthenticated, (req, res) => {
   db.Job.findAll({
     where: {
-      UserId: req.user.id
-    }
+      UserId: req.user.id,
+    },
   }).then(function (data) {
     res.render("job_board", { jobs: data, style: "style.css" });
   });
+});
+
+router.get("/about-us", (req, res) => {
+  res.render("about_us", { style: "about-us.css" });
 });
 
 //========================API ROUTES==============================
