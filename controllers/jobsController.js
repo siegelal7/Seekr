@@ -4,6 +4,7 @@ const db = require("../models");
 
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
+const { sequelize } = require("../models");
 
 //========================VIEW ROUTES============================
 router.get("/", (req, res) => {
@@ -19,6 +20,62 @@ router.get("/job-board", isAuthenticated, (req, res) => {
     res.render("job_board", { jobs: data, style: "style.css" });
   });
 });
+
+//FIXME:
+// router.get("/stats", isAuthenticated, (req, res) => {
+//   db.Job.findAll({
+//     where: {
+//       UserId: req.user.id,
+//     },
+//   }).then(async function (data) {
+//     // console.log(data[0].dataValues);
+//     var test = await determineStage(data);
+//     // console.log("TESST " + test);
+//     res.render("statistics", { jobs: test, style: "style.css" });
+//   });
+// });
+
+// async function determineStage(data) {
+//   return new Promise((res, rej) => {
+//     var obj = {
+//       planningToApply: [],
+//       applied: [],
+//       phone: [],
+//       onSite: [],
+//       offers: [],
+//       rejected: [],
+//     };
+//     // var planningArr = [];
+//     // var appliedArr = [];
+//     // var phoneArr = [];
+//     // var onSiteArr = [];
+//     // var offersArr = [];
+//     // var rejectedArr = [];
+//     for (let i = 0; i < data.length; i++) {
+//       if (data[i].dataValues.stage == "Planning to Apply") {
+//         // console.log("planning");
+//         obj.planningToApply.push(data[i].dataValues.jobName);
+//       } else if (data[i].dataValues.stage == "Applied") {
+//         // console.log("applied");
+//         obj.applied.push(data[i].dataValues.jobName);
+//       } else if (data[i].dataValues.stage == "Phone Screen") {
+//         // console.log("phone");
+//         obj.phone.push(data[i].dataValues.jobName);
+//       } else if (data[i].dataValues.stage == "On Site") {
+//         // console.log("onsite");
+//         obj.onSite.push(data[i].dataValues.jobName);
+//       } else if (data[i].dataValues.stage == "Offers") {
+//         // console.log("offer");
+//         obj.offers.push(data[i].dataValues.jobName);
+//       } else if (data[i].dataValues.stage == "Rejected") {
+//         // console.log("reject");
+//         obj.rejected.push(data[i].dataValues.jobName);
+//       }
+//     }
+//     console.log(obj);
+//     res(obj);
+//   });
+// }
 
 router.get("/about-us", (req, res) => {
   res.render("about_us", { style: "about-us.css" });
