@@ -13,7 +13,6 @@ img {
   width: auto;
   height: auto;
   box-shadow: 0 0 8px 8px white inset;
-
 }
 
 .imageDiv {
@@ -53,7 +52,6 @@ img {
   opacity: 0.8;
   box-shadow: 0 5px rgb(19, 32, 102);
   border-radius: 5px;
-
 }
 
 .kanban {
