@@ -1,6 +1,6 @@
 body {
-  background-image: url('https://thumbs.dreamstime.com/z/molecule-communication-network-background-molecule-communication-network-background-isolated-white-background-108101330.jpg'); 
-  background-repeat: no-repeat; 
+  background-image: url("https://thumbs.dreamstime.com/z/molecule-communication-network-background-molecule-communication-network-background-isolated-white-background-108101330.jpg");
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
@@ -100,7 +100,27 @@ img {
 }
 
 .planning {
-  background: #feb8ee;
+  background: #8cf9e3;
+}
+
+.applied {
+  background: #8ce3f9;
+}
+
+.phone {
+  background: #d58cfa;
+}
+
+.onSite {
+  background: #fe62b0;
+}
+
+.offers {
+  background: #fe5d72;
+}
+
+.rejected {
+  background: #fe4a4a;
 }
 
 .cell-title {
