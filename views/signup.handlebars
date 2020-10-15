@@ -1,30 +1,35 @@
+<div id="particles-js"></div> 
 <div class="grid-x margin-x" style="display: flex; align-items:center; justify-content:center; height: 100vh;">
-    <div class="cell medium-2">
-        <h2 class="text-center">Sign Up</h2>
+    <div class="cell medium-3" id="signup-form">
+        <h2 class="text-center">Get started</h2>
         <form class="signup">
             <div class="form-group">
-                <input type="text" class="form-control" id="first-name-input" placeholder="First Name">
+                <input type="text" class="signup-form-first-name" id="first-name-input" placeholder="First Name">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="last-name-input" placeholder="Last Name">
+                <input type="text" class="signup-form-last-name" id="last-name-input" placeholder="Last Name">
             </div>
             <div class="form-group">
-                <input type="email" class="form-control" id="email-input" placeholder="Email">
+                <input type="email" class="signup-form-username" id="email-input" placeholder="Email">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" id="password-input" placeholder="Password">
+                <input type="password" class="signup-form-password" id="password-input" placeholder="Password">
             </div>
             <div style="display: none" id="alert" class="alert alert-danger" role="alert">
                 <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                 <span class="sr-only">Error:</span> <span class="msg"></span>
             </div>
             <div class="text-center">
-                <button type="submit" class="success button">Sign Up</button>
+                <button type="submit" class="signup-button">Sign Up</button>
             </div>
         </form>
         <p class="text-center">Already have an account? <a href="/login">Log in</a></p>
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<script src="/assets/js/particles.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
