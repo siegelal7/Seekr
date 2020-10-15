@@ -1,6 +1,7 @@
 <div class="row">
   <div class="header columns">
     <ul class="dropdown menu" data-dropdown-menu>
+      <li><img src="/assets/LOGO-SEEKR-tiny.jpg" style="height: 2.3em;width: 5em; margin-left:0.4em"></li>
       <li>
         <a href="#Item-1">Get Started</a>
         <ul class="menu">
@@ -12,7 +13,7 @@
         </ul>
       </li>
       <li><a href="/">Home</a></li>
-      <li><a href="#Item-4">About Us</a></li>
+      <li><a href="/about-us">About Us</a></li>
       {{!--
       <li style="margin: auto">
         <a data-open="exampleModal1">Add a job</a>
@@ -92,7 +93,7 @@
 <div class="grid-container full">
   <div class="grid-x small-up-6 medium-up-6">
     <div
-      class="cell cell-col"
+      class="planning cell cell-col"
       ondrop="drop(event)"
       ondragover="allowDrop(event)"
       id="planning-to-apply"
@@ -175,7 +176,7 @@
       {{/each}}
     </div>
     <div
-      class="cell cell-col"
+      class="applied cell cell-col"
       ondrop="drop(event)"
       ondragover="allowDrop(event)"
       id="applied"
@@ -218,7 +219,7 @@
       {{/each}}
     </div>
     <div
-      class="cell cell-col"
+      class="phone cell cell-col"
       ondrop="drop(event)"
       ondragover="allowDrop(event)"
       id="phone-screen"
@@ -261,7 +262,7 @@
       {{/each}}
     </div>
     <div
-      class="cell cell-col"
+      class="onSite cell cell-col"
       ondrop="drop(event)"
       ondragover="allowDrop(event)"
       id="on-site"
@@ -303,7 +304,7 @@
       {{/each}}
     </div>
     <div
-      class="cell cell-col"
+      class="offers cell cell-col"
       ondrop="drop(event)"
       ondragover="allowDrop(event)"
       id="offers"
@@ -346,7 +347,7 @@
       {{/each}}
     </div>
     <div
-      class="cell cell-col"
+      class="rejected cell cell-col"
       ondrop="drop(event)"
       ondragover="allowDrop(event)"
       id="rejected"
@@ -435,7 +436,7 @@
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"
 ></script>
-<script src="/assets/drag-n-drop.js"></script>
+<script src="/assets/js/drag-n-drop.js"></script>
 <script>
   const dragStart = (event) => {
     event.currentTarget.classList.add("dragging");
