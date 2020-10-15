@@ -9,7 +9,7 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 //========================VIEW ROUTES============================
 router.get("/signup", (req, res) => {
     if(req.user) {
-        res.redirect("/index");
+        res.redirect("/");
     }
     res.render("signup", {style: "signup.css"});
 });
