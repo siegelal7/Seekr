@@ -1,3 +1,5 @@
+// const db = require("../../../models");
+
 $(document).ready(function () {
   const addNewProspect = $(".addNewProspect");
   let currentStage;
@@ -88,6 +90,19 @@ $(document).ready(function () {
     }).then(function (response) {
       console.log("successfully deleted " + targetId + " job");
       location.reload();
+    });
+  });
+
+  const saveBtn = $(".saveBtn");
+  saveBtn.on("click", (event) => {
+    var id = event.currentTarget.parentNode.parentNode.getAttribute("data-id");
+    $.ajax({
+      type: "PUT",
+      url: "/api/job",
+      data: { starred: 1, id: id },
+    }).then(function (data) {
+      console.log("starred value");
+      // location.reload();
     });
   });
 
