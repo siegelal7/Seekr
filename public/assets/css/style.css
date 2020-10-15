@@ -79,12 +79,16 @@ img {
   border-radius: 5px;
 }
 
+#get-started-text {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
 /* BEGIN JOB-BOARD PAGE ===========================================================================================*/
 
 .kanban {
   background:#8cb7d3;
-  /* background: rgba(95, 111, 119, 0.781); */
-  /* cursor: grab; */
+  cursor: grab;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 7px; 
   padding-left: 20px;
@@ -159,12 +163,11 @@ img {
 /* Styling for each column in the job_board.handlebars page */
 .cell-col {
   margin-top: 10px;
-  height: 89vh;
+  height: 88vh;
   border: 1px solid rgba(0, 0, 0, 0.226);
   padding: 10px;
   overflow-y: scroll;
   background-color: rgb(250, 249, 255);
-  border-radius: 5px;
 }
 
 .planning {
@@ -206,7 +209,6 @@ img {
   font-family: "Archivo", sans-serif;
   font-weight: 600;
   opacity: 0.885;
-  border-radius: 5px;
   margin-top: 10px;
 }
 
