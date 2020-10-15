@@ -4,7 +4,6 @@
   background-size: cover;
 } */
 
-
 /* ---- reset ---- */
 body {
   margin: 0;
@@ -27,25 +26,6 @@ canvas {
   z-index: -10;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .header {
   background: #8cb7d3;
   opacity: 0.875;
@@ -55,7 +35,7 @@ canvas {
   margin-top: 1%;
   justify-content: center;
   text-align: center;
-  background: #8cb7d3!important;
+  background: #8cb7d3 !important;
   opacity: 0.875;
 }
 

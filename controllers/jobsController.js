@@ -24,6 +24,10 @@ router.get("/about-us", (req, res) => {
   res.render("about_us", { style: "about-us.css" });
 });
 
+router.get("/stats", isAuthenticated, (req, res) => {
+  res.render("statistics", { style: "style.css" });
+});
+
 //========================API ROUTES==============================
 // Returns all job cards
 router.get("/api/jobs", (req, res) => {
