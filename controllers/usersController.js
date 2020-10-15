@@ -11,14 +11,14 @@ router.get("/signup", (req, res) => {
     if(req.user) {
         res.redirect("/index");
     }
-    res.render("signup");
+    res.render("signup", {style: "signup.css"});
 });
 
 router.get("/login", (req, res) => {
     if(req.user) {
         res.redirect("/");
     }
-    res.render("login");
+    res.render("login", {style: "login.css"});
 })
 
 
