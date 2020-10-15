@@ -66,7 +66,7 @@ canvas {
 .login-form-password {
     border-radius: 30px;
     border: none;
-    opacity: .1;
+    opacity: .3;
     transition: all ease .4s;
 } 
   
@@ -118,3 +118,12 @@ a {
 a:hover {
     color: rgb(71, 186, 221);
 }
+
+input::placeholder {
+    color: rgb(0, 0, 0);
+    padding-left: 10px;
+}
+
+input:focus::placeholder {
+    color: transparent;
+  }
