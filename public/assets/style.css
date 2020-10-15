@@ -93,6 +93,10 @@ img {
   border-radius: 5px;
 }
 
+.planning {
+  background: #feb8ee;
+}
+
 .cell-title {
   padding-left: 30px; /* we could probably figure out a better way to center this instead of using padding */
   padding-top: 10px;
