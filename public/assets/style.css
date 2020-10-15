@@ -1,5 +1,6 @@
 .header {
   background: #d7ecfa;
+  opacity: 0.875;
 }
 
 .top-card {
@@ -7,32 +8,105 @@
   justify-content: center;
   text-align: center;
 }
+
 img {
-  width: 100vw;
-  height: 34em;
+  width: auto;
+  height: auto;
+  box-shadow: 0 0 8px 8px white inset;
 }
 
-.image {
+.imageDiv {
   text-align: center;
-  border-top: 0px;
+  /* border-top: 0px; */
+  border: 0px;
+  background-color: #d7ecfa00;
+}
+
+.homePageChoice {
+  transition: transform 0.2s;
+}
+
+.homePageChoice:hover {
+  /* background: orange; */
+  transform: scale(1.04);
+  opacity: 1;
 }
 
 #employers {
   position: absolute;
-  right: 87%;
-  top: 44%;
-  height: 6em;
-  width: 10em;
-  /* opacity: 0.8; */
-  box-shadow: 0 5px black;
+  right: 82%;
+  top: 30%;
+  height: 12em;
+  width: 15em;
+  opacity: 0.8;
+  box-shadow: 0 5px rgb(19, 32, 102);
+  border-radius: 5px;
 }
 
 #employees {
   position: absolute;
   right: 4%;
-  top: 44%;
-  height: 6em;
-  width: 10em;
-  /* opacity: 0.8; */
-  box-shadow: 0 5px black;
+  top: 30%;
+  height: 12em;
+  width: 15em;
+  opacity: 0.8;
+  box-shadow: 0 5px rgb(19, 32, 102);
+  border-radius: 5px;
+}
+
+.kanban {
+  background: black;
+  cursor: grab;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 10px;
+}
+
+.card-section {
+  text-align: center;
+  padding: 0rem;
+  background: #d7ecfa;
+}
+
+.kanban:active {
+  cursor: grabbing;
+}
+
+.kanban.dragging {
+  opacity: 0.5;
+  transform: scale(0.8);
+}
+
+#deleteBtn:hover {
+  display: block;
+  cursor: pointer;
+}
+
+/* Styling for each column in the job_board.handlebars page */
+.cell-col {
+  margin-top: 10px;
+  height: 89vh;
+  border: 1px solid rgba(0, 0, 0, 0.226);
+  padding: 10px;
+  overflow-y: scroll;
+  background-color: rgb(250, 249, 255);
+  opacity: 0.885;
+  border-radius: 5px;
+}
+
+.cell-title {
+  padding-left: 30px; /* we could probably figure out a better way to center this instead of using padding */
+  padding-top: 10px;
+  height: 3rem;
+  border: 1px solid rgba(0, 0, 0, 0.199);
+  background-color: rgb(250, 249, 255);
+  font-family: "Archivo", sans-serif;
+  font-weight: 600;
+  opacity: 0.885;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.grid-container {
+  /* padding-bottom: -10px!important; */
+  /* margin-bottom: -10px; */
 }
