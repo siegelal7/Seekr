@@ -17,3 +17,53 @@ canvas {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
+  z-index: -10;
+}
+
+ #login-form {
+    padding: 2rem 1.5em;
+    border-radius: .5rem;
+    background-color: #3d454fd2;
+  }
+  
+
+    #login-form h2 {
+    color: white;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  
+  #login-form input {
+    color: black;
+  }
+  
+  #login-form input:focus {
+    opacity: .8;
+  } 
+  
+  .login-form-username,
+  .login-form-password {
+    border-radius: 30px;
+    border: none;
+    opacity: .1;
+    transition: all ease .4s;
+  } 
+  
+  .login-button {
+    border-radius: 30px;
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%;
+    padding: 1rem;
+    transition: all ease .6s;
+    margin-bottom: 1rem;
+  } 
+  
+  .login-button:hover {
+    background-color: #44c8ed;
+    border-color: #44c8ed;
+  } 
+  
