@@ -1,6 +1,6 @@
 // console.log("test");
 
-// var Plotly = require("plotly.js-dist");
+// var Plotly = require("plotly.js/lib/core");
 // Plotly.register([
 //   require("plotly.js/lib/map"),
 //   require("plotly.js/lib/choropleth"),
@@ -16,7 +16,7 @@
 //       "Offers",
 //       "Rejected",
 //     ],
-//     y: [1, 2, 3, 4, 5, 6],
+//     y: ,
 //     type: "bar",
 //   },
 // ];
