@@ -26,12 +26,6 @@ canvas {
   background-color: #3d454fd2;
 } */
 
-#login-form h2 {
-  color: white;
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-
 #login-form input {
   color: black;
 }
