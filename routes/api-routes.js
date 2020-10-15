@@ -6,4 +6,9 @@ module.exports = function (app) {
   app.get("/job-board", (req, res) => {
     res.render("job_board");
   });
+  app.get("/postings", (req, res) => {
+    res.render("postings")
+  })
 };
+
+
