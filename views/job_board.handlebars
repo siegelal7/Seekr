@@ -1,29 +1,19 @@
-<div class="row">
+{{!-- <div class="row">
   <div class="header columns">
     <ul class="dropdown menu" data-dropdown-menu>
-      <li><img src="/assets/LOGO-SEEKR-tiny.jpg" style="height: 2.3em;width: 5em; margin-left:0.4em"></li>
+      <li><img src="/assets/LOGO-SEEKR-tiny.jpg" style="height: 2.3em; width: 5.3em; margin-left:0.4em"></li>
       <li>
-        <a href="#Item-1">Get Started</a>
-        <ul class="menu">
-          <li><a href="#Item-1A">See your prospects</a></li>
-          <li>
-            <a href="#Item-1B">Action-steps</a>
-          </li>
-          <li><a href="#Item-1C">Contact an advisor</a></li>
-        </ul>
+        <a href="/">Home</a>
+        
       </li>
-      <li><a href="/">Home</a></li>
+      
+      <li><a href="#Item-3">Resources</a></li>
       <li><a href="/about-us">About Us</a></li>
-      {{!--
-      <li style="margin: auto">
-        <a data-open="exampleModal1">Add a job</a>
-      </li>
-      --}}
-      <li style="margin: auto">Hi <span class="user-name"></span>!</li>
-      <li><a href="/logout">Logout</a></li>
+      <li style="position:absolute; right:0"><a href="/logout">Logout</a></li>
     </ul>
   </div>
-</div>
+</div> --}}
+{{> header}}
 
 <div class="grid-container full">
   <div class="grid-x small-up-6 medium-up-6">
@@ -369,7 +359,8 @@
             right: 0;
           "
           class="updateBtn button tiny"
-          data-open="editModal"
+          
+           data-open="editModal"
         
         >
           Edit
