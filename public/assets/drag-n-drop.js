@@ -33,14 +33,25 @@ $(document).ready(function () {
     //not sure this is the best solution to hide it
     // newJobModal.attr("style", "display:none");
   });
-  let targetTitle;
+
   let targetId;
   const editBtn = $(".updateBtn");
   editBtn.on("click", function (event) {
-    console.log(event.target.parentNode.parentNode.childNodes);
+    // console.log($(this).parent().find(".card-section"));
+    var elementToGrabVals = $(this).parent().find(".card-section");
     //console.log(event.target.parentNode.getAttribute("data-id"));
     targetId = event.target.parentNode.getAttribute("data-id");
     //console.log(targetId);
+    var $modal = $("#editModal");
+    $("#job-title-edit").val(elementToGrabVals.find("h4").text());
+    $("#company-name-edit").val(
+      elementToGrabVals.find("p.currentCompany").text()
+    );
+    $("#position-edit").val(elementToGrabVals.find("p.currentPos").text());
+    $("#stage-edit").val(elementToGrabVals.find("p.currentStage").text());
+    $.ajax("/url").done(function (resp) {
+      $modal.html(resp).foundation("open");
+    });
   });
 
   //update form submit event listener
