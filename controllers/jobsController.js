@@ -7,7 +7,7 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 //========================VIEW ROUTES============================
 router.get("/", (req, res) => {
-  res.render("index");
+  res.render("index", {style: "style.css"});
 });
 
 router.get("/job-board", isAuthenticated, (req, res) => {
@@ -16,7 +16,7 @@ router.get("/job-board", isAuthenticated, (req, res) => {
       UserId: req.user.id
     }
   }).then(function (data) {
-    res.render("job_board", { jobs: data });
+    res.render("job_board", { jobs: data, style: "style.css" });
   });
 });
 
