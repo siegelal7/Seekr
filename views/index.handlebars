@@ -1,59 +1,131 @@
-{{!-- <!-- This demo uses float grid but you can use flex grid too -->
+{{!--
+<!-- This demo uses float grid but you can use flex grid too -->
 
 <div class="row">
   <div class="columns">
     <h2>Horizontal Dropdown Menu</h2>
-    <p><strong>Set up:</strong> Dropdown menus build on the <a href="foundation.zurb.com/sites/docs/">Menu</a> component's syntax. Add the class <code>.dropdown</code> and the attribute <code>data-dropdown-menu</code> to the menu container to set up the dropdown.</p>
-    <p><strong>Activate:</strong> To create dropdown menus, nest a new <code>&lt;ul&gt;</code> inside an <code>&lt;li&gt;</code>. You can nest further to create more levels of dropdowns.</p>
+    <p>
+      <strong>Set up:</strong> Dropdown menus build on the
+      <a href="foundation.zurb.com/sites/docs/">Menu</a> component's syntax. Add
+      the class <code>.dropdown</code> and the attribute
+      <code>data-dropdown-menu</code> to the menu container to set up the
+      dropdown.
+    </p>
+    <p>
+      <strong>Activate:</strong> To create dropdown menus, nest a new
+      <code>&lt;ul&gt;</code> inside an <code>&lt;li&gt;</code>. You can nest
+      further to create more levels of dropdowns.
+    </p>
     <div class="primary callout">
-      <p>Note that the <code>&lt;ul&gt;</code> goes <em>after</em> the <code>&lt;a&gt;</code>, and not inside of it.</p>
+      <p>
+        Note that the <code>&lt;ul&gt;</code> goes <em>after</em> the
+        <code>&lt;a&gt;</code>, and not inside of it.
+      </p>
     </div>
   </div>
-</div> --}}
-<div id="particles-js"></div>  
+</div>
+--}}
+<div id="particles-js"></div>
 <div class="row">
   <div class="header columns">
     <ul class="dropdown menu" data-dropdown-menu>
-      <li><img src="/assets/LOGO-SEEKR-tiny.jpg" style="height: 2.3em; width: 5.3em; margin-left:0.4em;cursor:pointer" id="logo"></li>
+      <li>
+        <img
+          src="/assets/LOGO-SEEKR-tiny.jpg"
+          style="
+            height: 2.3em;
+            width: 5.3em;
+            margin-left: 0.4em;
+            cursor: pointer;
+          "
+          id="logo"
+        />
+      </li>
       <li>
         <a href="/job-board">View Job Board</a>
       </li>
       <li><a href="/stats">Application Stats</a></li>
       <li><a href="/favorites">Favorites</a></li>
       <li><a href="/about-us">About Us</a></li>
-      {{!-- <li style="position: absolute;right:0;"><a href="/login">Login</a></li> --}}
-      <li style="position: absolute;right:0;"><a href="/logout">Logout</a></li>
+      {{!--
+      <li style="position: absolute; right: 0"><a href="/login">Login</a></li>
+      --}}
+      {{!-- <li style="position: absolute; right: 0">
+        <a href="/logout" id="loginLogout">Logout</a>
+      </li> --}}
     </ul>
   </div>
 </div>
 
 <div class="top-card callout primary" data-closable>
   <h5>Your Future is in Your Hands</h5>
-  <p>Take control of your job search. Keep track of your prospects and action-steps.</p>
+  <p>
+    Take control of your job search. Keep track of your prospects and
+    action-steps.
+  </p>
   <a href="#">It's dangerous to go alone, take this.</a>
-  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+  <button
+    class="close-button"
+    aria-label="Dismiss alert"
+    type="button"
+    data-close
+  >
     <span aria-hidden="true">&times;</span>
   </button>
-  
 </div>
 <div class="imageDiv callout large">
+<<<<<<< HEAD
+  <img
+    src="https://dynamicbusiness.com.au/wp-content/uploads/2019/01/Employees.jpg"
+    alt="fun-workplace"
+  />
+  <button class="homePageChoice button" id="employers">
+    Employers <br />Click here!
+  </button>
+  <a href="/job-board"
+    ><button class="homePageChoice button" id="employees">
+      Employees<br />Click here!
+    </button></a
+  >
+=======
     <img src="https://dynamicbusiness.com.au/wp-content/uploads/2019/01/Employees.jpg" alt="fun-workplace">
     {{!-- <button class="homePageChoice button" id="employers">Employers <br>Click here!</button> --}}
   <a href="/job-board"><button class="homePageChoice button" id="employees"><div id="get-started-text">View job board</div></button></a>
+>>>>>>> 1ef9e33bc76d2a38a2e7529b9918d60a10126a7d
 </div>
 
-{{!-- <div class="top-card callout primary" data-closable>
+{{!--
+<div class="top-card callout primary" data-closable>
   <h5>Your Future is in Your Hands</h5>
-  <p>Take control of your job search. Keep track of your prospects and action-steps.</p>
+  <p>
+    Take control of your job search. Keep track of your prospects and
+    action-steps.
+  </p>
   <a href="#">It's dangerous to go alone, take this.</a>
-  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+  <button
+    class="close-button"
+    aria-label="Dismiss alert"
+    type="button"
+    data-close
+  >
     <span aria-hidden="true">&times;</span>
   </button>
-  
-</div> --}}
+</div>
+--}}
 
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"
+></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
-  <script src="/assets/js/particlesHomePage.js"></script>
-
-
+<script src="/assets/js/particlesHomePage.js"></script>
+<script>
+  const loginLogout = $("#loginLogout");
+  if (req.user) {
+    console.log("logged in");
+  } else {
+    console.log("logged out");
+  }
+</script>
