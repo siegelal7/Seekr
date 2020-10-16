@@ -5,19 +5,20 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
-  background: #d7ecfa;
   font-family: sans-serif;
   position: center;
 }
 .wrapper {
-  margin-top: 10%;
+  margin-top: 7%;
 }
 .wrapper h1 {
-  font-family: cursive;
-  font-size: 52px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 75px;
   margin-bottom: 60px;
   text-align: center;
+  color: #8cb7d3;
 }
 /* ---- particles.js container ---- */
 #particles-js {
@@ -31,11 +32,17 @@ body {
   background-position: 50% 50%;
   z-index: -10;
 }
+.header {
+  background: #142531;
+  opacity: 0.875;
+}
+
 
 .team {
   display: flex;
   text-align: center;
   width: auto;
+  justify-content: center;
 }
 .team .team-member {
   background: azure;
@@ -64,19 +71,17 @@ body {
 }
 
 .blockquote {
-  position: center;
-  max-width: 600px;
-  margin: 10px 30px;
+  position: center!important;
+  /* max-width: 600px; */
+  margin: 50px 600px;
   padding: 25px;
-  background: whitesmoke;
+  background: rgb(245, 245, 245);
   border: 1px solid #bbbbbb;
   box-sizing: border-box;
   font-family: italic;
   text-align: center;
 }
 
-.header {
-  background: #d7ecfa;
-}
+
 .logo {
 }
