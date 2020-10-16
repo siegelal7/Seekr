@@ -109,17 +109,8 @@
           <input type="text" name="title" id="job-title" />
           <label for="company">Company Name:</label>
           <input type="text" name="company" id="company-name" />
-          {{!-- <label for="position">Position:</label>
-          <input type="text" name="position" id="position" /> --}}
-          <!-- <label for="stage">Stage:</label>
-          <select id="stage">
-            <option value="Planning to Apply">Planning to Apply</option>
-            <option value="Applied">Applied</option>
-            <option value="Phone Screen">Phone Screen</option>
-            <option value="On Site">On Site</option>
-            <option value="Offers">Offers</option>
-            <option value="Rejected">Rejected</option>
-          </select> -->
+          <label for="notes">Notes (optional):</label>
+          <textarea name="notes" id="notes" cols="30" rows="10"></textarea>
           <button
             class="button success"
             data-close
@@ -359,6 +350,8 @@
         <input type="text" name="title" id="job-title-edit" />
         <label for="company">Company Name:</label>
         <input type="text" name="company" id="company-name-edit" />
+        <label for="notes">Notes (optional):</label>
+        <textarea name="notes" id="notes" cols="30" rows="10"></textarea>
         <label for="stage">Stage:</label>
         <select id="stage-edit">
           <option value="Planning to Apply">Planning to Apply</option>

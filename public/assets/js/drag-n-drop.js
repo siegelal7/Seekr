@@ -21,6 +21,7 @@ $(document).ready(function () {
       jobName: $("#job-title").val().trim(),
       company: $("#company-name").val().trim(),
       stage: currentStage,
+      notes: $("#notes").val(),
       UserId: currentUserId,
     };
     $.ajax({
@@ -37,11 +38,25 @@ $(document).ready(function () {
 
   let targetId;
   const editBtn = $(".updateBtn");
+  const textArea = $("#notes");
   editBtn.on("click", function (event) {
-    // console.log($(this).parent().find(".card-section"));
     var elementToGrabVals = $(this).parent().find(".card-section");
     //console.log(event.target.parentNode.getAttribute("data-id"));
     targetId = event.target.parentNode.getAttribute("data-id");
+    $.ajax({
+      type: "GET",
+      url: "/api/jobs",
+    }).then(function (data) {
+      //console.log(data[targetId - 1]);
+      // console.log(targetId);
+      //console.log(currentId)
+      // console.log(data[targetId-1].notes);
+      textArea.text(data[targetId - 1].notes);
+    });
+    // console.log($(this).parent().find(".card-section"));
+    // var elementToGrabVals = $(this).parent().find(".card-section");
+    //console.log(event.target.parentNode.getAttribute("data-id"));
+    // targetId = event.target.parentNode.getAttribute("data-id");
     //console.log(targetId);
     var $modal = $("#editModal");
     $("#job-title-edit").val(elementToGrabVals.find("h4").text());
