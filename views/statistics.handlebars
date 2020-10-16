@@ -24,7 +24,8 @@
     </ul>
   </div>
 </div>
-<div id="graphDiv" style="margin-top: 2em"></div>
+<div id="graphDiv"></div>
+<div id="jobsAppliedDiv"></div>
 <!-- <div class="grid-container">
   <div class="grid-x grid-margin-x small-up-2 medium-up-3">
     {{#each jobs}}
@@ -52,7 +53,10 @@
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <!-- <script src="/assets/js/stats.js"></script> -->
 <script src="/assets/js/particlesHomePage.js"></script>
+
+
 <script>
+// RENDERING OF JOB STAGES COUNT GRAPH
   $.ajax({
     url: "/api/ydata",
     type: "GET",
@@ -81,10 +85,9 @@
         },
       },
     ];
+
     var layout = {
       title: "Job Application Stats",
-      {{!-- plot_bgcolor:"#FFF3",
-      paper_bgcolor:"#FFF3", --}}
       yaxis: {
         dtick: 1
       }
@@ -92,4 +95,43 @@
 
     Plotly.newPlot("graphDiv", data, layout);
   });
+
+//============================================================================
+
+// RENDERING OF JOBS ADDED BY DAY
+  $.get("/api/userAuthJobs").then(jobs => {
+    const timeSeriesArray = jobs.map(job => job.createdAt_formatted);
+    
+
+    let counts = {};
+
+    for (let i = 0; i < timeSeriesArray.length; i++) {
+      let num = timeSeriesArray[i];
+      counts[num] = counts[num] ? counts[num] + 1 : 1;
+    }
+
+    const dates = Object.keys(counts);
+    const dateCounts = Object.values(counts);
+
+    
+    const jobsAppliedData = [{
+      x: dates,
+      y: dateCounts,
+      type: 'bar'
+    }];
+
+    const timeSeriesLayout = {
+      title: "Jobs added to board by day",
+      yaxis: {
+        dtick: 1
+      }
+    };
+
+    Plotly.newPlot("jobsAppliedDiv", jobsAppliedData, timeSeriesLayout);
+  });
+
+
+
+
+
 </script>
