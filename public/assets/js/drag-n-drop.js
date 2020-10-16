@@ -38,21 +38,20 @@ $(document).ready(function () {
 
   let targetId;
   const editBtn = $(".updateBtn");
-  const textArea = $("#notes");
+  const textArea = $("#notas");
   editBtn.on("click", function (event) {
     var elementToGrabVals = $(this).parent().find(".card-section");
     //console.log(event.target.parentNode.getAttribute("data-id"));
     targetId = event.target.parentNode.getAttribute("data-id");
-    $.ajax({
-      type: "GET",
-      url: "/api/jobs",
-    }).then(function (data) {
-      //console.log(data[targetId - 1]);
-      // console.log(targetId);
-      //console.log(currentId)
-      // console.log(data[targetId-1].notes);
-      textArea.text(data[targetId - 1].notes);
-    });
+    // $.ajax({
+    //   type: "GET",
+    //   url: "/api/jobs",
+    // }).then(function (data) {
+    //   console.log(data);
+    //   console.log(data[targetId - 1]);
+    //   console.log(data[targetId - 1].notes);
+    //   textArea.text(data[targetId - 1].notes);
+    // });
     // console.log($(this).parent().find(".card-section"));
     // var elementToGrabVals = $(this).parent().find(".card-section");
     //console.log(event.target.parentNode.getAttribute("data-id"));
@@ -65,6 +64,7 @@ $(document).ready(function () {
     );
     $("#position-edit").val(elementToGrabVals.find("p.currentPos").text());
     $("#stage-edit").val(elementToGrabVals.find("p.currentStage").text());
+    textArea.val(elementToGrabVals.find("p.currentNotes").text());
     $.ajax("/url").done(function (resp) {
       $modal.html(resp).foundation("open");
     });
@@ -82,6 +82,7 @@ $(document).ready(function () {
       jobName: $("#job-title-edit").val().trim(),
       company: $("#company-name-edit").val().trim(),
       stage: $("#stage-edit").val().trim(),
+      notes: textArea.val(),
       id: targetId,
     };
     $.ajax({
