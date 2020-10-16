@@ -50,13 +50,13 @@
 ></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script src="/assets/js/stats.js"></script>
+<!-- <script src="/assets/js/stats.js"></script> -->
 <script src="/assets/js/particlesHomePage.js"></script>
 <script>
   $.ajax({
     url: "/api/ydata",
     type: "GET",
-  }).then(function (data) {
+  }).then(function (res) {
     var data = [
       {
         x: [
@@ -67,7 +67,8 @@
           "Offers",
           "Rejected",
         ],
-        y: data,
+        y: res,
+        title: "Job Search Stages",
         type: "bar",
       },
     ];
