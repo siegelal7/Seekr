@@ -32,12 +32,7 @@ canvas {
   background: #8cb7d3 !important;
   opacity: 0.875;
 }
-
-img {
-  width: auto;
-  height: auto;
-  box-shadow: 0 0 8px 8px white inset;
-}
+ 
 
 /* .imageDiv {
   text-align: center;
@@ -52,8 +47,12 @@ img {
   margin: auto;  
 }
 
-.orbit-image2 {
-  size: 150%;
+/* .text-center {
+  font-size: 150%;
+} */
+p {
+  font-size: 01.5rem;
+
 }
 
 .homePageChoice {
