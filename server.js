@@ -45,8 +45,8 @@ app.use(jobsRoutes);
 const usersRoutes = require("./controllers/usersController");
 app.use(usersRoutes);
 
-db.sequelize.sync({ force: true }).then(function () {
-  // db.sequelize.sync().then(function () {
+// db.sequelize.sync({ force: true }).then(function () {
+db.sequelize.sync().then(function () {
   app.listen(PORT, () => {
     console.log("Server listening on http://localhost:" + PORT);
   });
