@@ -93,7 +93,8 @@ $(document).ready(function () {
     });
   });
 
-  const saveAlert = $("#saveAlert");
+  const cardSectionEl = $(".card-section");
+  // const saveAlert = $(".saveAlert");
   const saveBtn = $(".saveBtn");
   saveBtn.on("click", (event) => {
     var id = event.currentTarget.parentNode.parentNode.getAttribute("data-id");
@@ -102,15 +103,21 @@ $(document).ready(function () {
       url: "/api/job",
       data: { starred: 1, id: id },
     }).then(function (data) {
-      saveAlert.text("saved!");
+      var savedText = $("<p>")
+        .text("Saved")
+        .attr(
+          "style",
+          "display: block; position: absolute;right: 4%;bottom: 0; font-size:1em"
+        );
+      cardSectionEl.append(savedText);
       // saveAlert.attr("display:block");
       setTimeout(function () {
         saveAlert.attr("style", "display:none");
       }, 2000);
-      saveAlert.attr(
-        "style",
-        "    display: block; position: absolute;right: 4%;bottom: 0; font-size:1em"
-      );
+      // saveAlert.attr(
+      //   "style",
+      //   "display: block; position: absolute;right: 4%;bottom: 0; font-size:1em"
+      // );
       // console.log("starred value");
       // location.reload();
     });
