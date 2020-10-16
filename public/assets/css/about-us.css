@@ -1,38 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Allura|Josefin+Sans');
+
+
 * {
   margin: 0;
   padding: 0;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   box-sizing: border-box;
   }
 body {
-    min-height:100vh;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #d7ecfa;
+    background: #d7ecfa;
+    font-family: sans-serif;
+    position: center;
+
   }
-.about-section {
-  background: url(pic.jp/assets/LOGO-SEEKR-tiny.jpg);
-  background-size: 55%;
-  background-color: #ffffff;
-  padding: 150px;
+.wrapper {
+ margin-top: 10%;
+
 
 }
-h1{
+.wrapper h1{
+ font-family: cursive;
+ font-size: 52px;
+ margin-bottom: 60px;
+ text-align: center;
+}
+
+.team {
+  display: flex;
   text-align: center;
-  font: italic;
+  width: auto;
+}
+.team .team-member{
+  background: azure;
+  margin: 5px;
+  margin-bottom: 50px;
+  width: 300px;
+  line-height: 20px;
+  color: black; 
+  position: relative;
 }
 
-.text {
-  font-size: 13px;
+.team .team-member h4{
   color: black;
-  line-height: 30px;
-  text-align: justify;
-  margin-bottom: 40px;
-
+  font-size:26px;
+  margin-top: 50px;
+  position: center;
 
 }
+.team .team-member p.role {
+  color: #d7ecfa;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 12px 0;
+}
+.blockquote--bordered{
+  border-left-width: 10px;
+}
+
+.blockquote {
+  position: center;
+  max-width:600px;
+  margin: 10px 30px;
+  padding:25px;
+  background: whitesmoke;
+  border:1px solid #bbbbbb;
+  box-sizing: border-box;
+  font-family: italic;
+  text-align: center;
+}
+
+
 
 .header {
   background: #d7ecfa;

@@ -22,7 +22,7 @@
         <a href="/job-board">View Job Board</a>
       </li>
       <li><a href="/stats">Application Stats</a></li>
-      <li><a href="/favorites">Starred Jobs</a></li>
+      <li><a href="/favorites">Favorites</a></li>
       <li><a href="/about-us">About Us</a></li>
       <li><a href="/logout" style='position:absolute; right:0'>Logout</a></li>
     </ul>
@@ -141,35 +141,26 @@
 
       {{#each jobs}}
       {{#ifEquals this.stage "Planning to Apply"}}
-
+    
       <div
         class="kanban card"
         draggable="true"
         ondragstart="drag(event)"
         data-id="{{ this.id }}"
-        style="position: relative"
-      >
-        <button
-          style="margin-bottom: 0px; width: 3em"
-          class="deleteBtn button tiny"
-        >
+        style="position: relative">
+
+        <button class="deleteBtn button tiny">
           X
         </button>
         <button
-          style="
-            margin-bottom: 0px;
-            width: fit-content;
-            position: absolute;
-            top: 0;
-            right: 0;
-          "
           class="updateBtn button tiny"
           data-open="editModal"
         >
           Edit
         </button>
         <div class="card-section">
-          <button class="saveBtn button tiny" style="position: absolute; right:0;">Save</button>
+          <button class="saveBtn button tiny">Save</button>
+          <p><small id="saveAlert" style="display:none"></small></p>
           <h4 class="job-card-title">{{ this.jobName }}</h4>
           <p class="currentCompany">{{ this.company }}</p>
           <p class="currentStage" style="display:none">{{ this.stage }}</p>
@@ -195,24 +186,17 @@
         data-id="{{ this.id }}"
         style="position: relative"
       >
-        <button style="margin: 0px; width: 1em" class="deleteBtn button tiny">
+        <button class="deleteBtn button tiny">
           X
         </button>
         <button
-          style="
-            margin-bottom: 0px;
-            width: fit-content;
-            position: absolute;
-            top: 0;
-            right: 0;
-          "
           class="updateBtn button tiny"
           data-open="editModal"
         >
           Edit
         </button>
         <div class="card-section">
-          <button class="saveBtn button tiny" style="position: absolute; right:0;">Save</button>
+          <button class="saveBtn button tiny">Save</button>
           <h4 class="job-card-title">{{ this.jobName }}</h4>
           <p class="currentCompany">{{ this.company }}</p>
           <p class="currentStage" style="display:none">{{ this.stage }}</p>
@@ -238,24 +222,17 @@
         data-id="{{ this.id }}"
         style="position: relative"
       >
-        <button style="margin: 0px; width: 1em" class="deleteBtn button tiny">
+        <button class="deleteBtn button tiny">
           X
         </button>
         <button
-          style="
-            margin-bottom: 0px;
-            width: fit-content;
-            position: absolute;
-            top: 0;
-            right: 0;
-          "
           class="updateBtn button tiny"
           data-open="editModal"
         >
           Edit
         </button>
         <div class="card-section">
-          <button class="saveBtn button tiny" style="position: absolute; right:0;">Save</button>
+          <button class="saveBtn button tiny">Save</button>
           <h4 class="job-card-title">{{ this.jobName }}</h4>
           <p class="currentCompany">{{ this.company }}</p>
           <p class="currentStage" style="display:none">{{ this.stage }}</p>
@@ -280,24 +257,17 @@
         data-id="{{ this.id }}"
         style="position: relative"
       >
-        <button style="margin: 0px; width: 1em" class="deleteBtn button tiny">
+        <button class="deleteBtn button tiny">
           X
         </button>
         <button
-          style="
-            margin-bottom: 0px;
-            width: fit-content;
-            position: absolute;
-            top: 0;
-            right: 0;
-          "
           class="updateBtn button tiny"
           data-open="editModal"
         >
           Edit
         </button>
         <div class="card-section">
-          <button class="saveBtn button tiny" style="position: absolute; right:0;">Save</button>
+          <button class="saveBtn button tiny">Save</button>
           <h4 class="job-card-title">{{ this.jobName }}</h4>
           <p class="currentCompany">{{ this.company }}</p>
           <p class="currentStage" style="display:none">{{ this.stage }}</p>
@@ -323,24 +293,17 @@
         data-id="{{ this.id }}"
         style="position: relative"
       >
-        <button style="margin: 0px; width: 1em" class="deleteBtn button tiny">
+        <button class="deleteBtn button tiny">
           X
         </button>
         <button
-          style="
-            margin-bottom: 0px;
-            width: fit-content;
-            position: absolute;
-            top: 0;
-            right: 0;
-          "
           class="updateBtn button tiny"
           data-open="editModal"
         >
           Edit
         </button>
         <div class="card-section">
-          <button class="saveBtn button tiny" style="position: absolute; right:0;">Save</button>
+          <button class="saveBtn button tiny">Save</button>
           <h4 class="job-card-title">{{ this.jobName }}</h4>
           <p class="currentCompany">{{ this.company }}</p>
           <p class="currentStage" style="display:none">{{ this.stage }}</p>
@@ -366,17 +329,10 @@
         data-id="{{ this.id }}"
         style="position: relative"
       >
-        <button style="margin: 0px; width: 1em" class="deleteBtn button tiny">
+        <button class="deleteBtn button tiny">
           X
         </button>
         <button
-          style="
-            margin-bottom: 0px;
-            width: fit-content;
-            position: absolute;
-            top: 0;
-            right: 0;
-          "
           class="updateBtn button tiny"
           
            data-open="editModal"
@@ -385,7 +341,7 @@
           Edit
         </button>
         <div class="card-section">
-          <button class="saveBtn button tiny" style="position: absolute; right:0;">Save</button>
+          <button class="saveBtn button tiny">Save</button>
           <h4 class="job-card-title">{{ this.jobName }}</h4>
           <p class="currentCompany">{{ this.company }}</p>
           <p class="currentStage" style="display:none">{{ this.stage }}</p>
@@ -397,7 +353,7 @@
     </div>
     <!-- FIXME: not sure if this is correct locaiton -->
     <div class="reveal" id="editModal" data-reveal>
-      <h1>Edit Prospective Job</h1>
+      <h1>Edit Card</h1>
       <form id="editForm" action="">
         <label for="title">Job Title:</label>
         <input type="text" name="title" id="job-title-edit" />

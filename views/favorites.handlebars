@@ -1,4 +1,19 @@
 <div id="particles-js"></div>
+{{!--
+<div class="large reveal" id="exampleModal1" data-reveal>
+  <h1>Awesome. I Have It.</h1>
+  <p class="lead">Your couch. It is mine.</p>
+  <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+  <button
+    class="close-button"
+    data-close
+    aria-label="Close modal"
+    type="button"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+--}}
 <div class="row">
   <div class="header columns">
     <ul class="dropdown menu" data-dropdown-menu>
@@ -18,25 +33,30 @@
         <a href="/job-board">View Job Board</a>
       </li>
       <li><a href="/stats">Application Stats</a></li>
-      <li><a href="/favorites">Starred Jobs</a></li>
+      <li><a href="/favorites">Favorites</a></li>
       <li><a href="/about-us">About Us</a></li>
       <li><a href="/logout" style="position: absolute; right: 0">Logout</a></li>
     </ul>
   </div>
 </div>
 
-<div class="grid-container">
+<div class="grid-container" id="faveJobs">
   <div class="grid-x grid-margin-x small-up-2 medium-up-3">
     {{#each jobs}}
     {{#if starred}}
     <div class="cell">
-      <div class="card">
-        <div class="card-divider"></div>
-        <div class="card-section">
+      <div class="card" style="background: #273742; text-align: center">
+        <!-- <div class="card-divider"></div> -->
+        <div class="card-section" data-id="{{ this.id }}">
+          {{!--
+          <p>
+            <button class="button" data-open="exampleModal1">Add Notes</button>
+          </p>
+          --}}
           <button class="notesBtn button tiny">Write Notes</button>
-          <h4>{{ this.jobName }}</h4>
-          <p>{{ this.company }}</p>
-          <p>{{ this.stage }}</p>
+          <h4>Title: {{ this.jobName }}</h4>
+          <p>Company: {{ this.company }}</p>
+          <p>Stage: {{ this.stage }}</p>
         </div>
       </div>
     </div>
@@ -45,6 +65,110 @@
   </div>
 </div>
 
+<div
+  class="notesForm"
+  id="notesForm"
+  style="
+    background: white;
+    min-width: 40vw;
+    width: fit-content;
+    margin: auto;
+    min-height: 60vh;
+    height: fit-content;
+    text-align: center;
+    position: relative;
+    display: none;
+  "
+>
+  <button
+    class="button tiny"
+    id="closeNotes"
+    style="position: absolute; top: 0; right: 0"
+  >
+    X
+  </button>
+  <h3>Notes:</h3>
+
+  <form style="margin-left: 4px; margin-right: 4px">
+    <textarea name="notes" id="notes" cols="30" rows="10"></textarea>
+    <button class="button" id="formSubmit">Done</button>
+  </form>
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"
+></script>
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script src="/assets/js/particlesHomePage.js"></script>
+{{!--
 <script src="/assests/js/faves.js"></script>
+--}}
+<script>
+  const notesBtn = $(".notesBtn");
+  const faveJobsDiv = $("#faveJobs");
+  const notesFormDiv = $("#notesForm");
+  const closeNotesBtn = $("#closeNotes");
+  const formSubmitBtn = $("#formSubmit");
+  let currentId;
+  const textArea = $("#notes");
+
+  notesBtn.on("click", (event) => {
+    $.ajax({
+      type: "GET",
+      url: "/api/jobs",
+    }).then(function (data) {
+      console.log(data.notes);
+    });
+    //  console.log("clicked");
+    //console.log(event.currentTarget.parentNode.getAttribute("data-id"))
+    currentId = event.currentTarget.parentNode.getAttribute("data-id");
+    notesFormDiv.attr(
+      "style",
+      `background: white;
+    width: 40vw;
+    margin: auto;
+    min-height: 60vh;
+    height: fit-content;
+    text-align: center;
+    position: relative;`
+    );
+    faveJobsDiv.attr("style", "display:none");
+    // var button = $(
+    //   "<button class='button tiny' id='closeNotes' style='position:absolute; top:0; right:0'>"
+    // ).text("X");
+    // notesFormDiv.append(button);
+    // let closeNotesBtn = $("#closeNotes");
+    closeNotesBtn.on("click", (event) => {
+      // console.log("close notere");
+      faveJobsDiv.attr("style", "display:inherit, box-sizing: inherit, ");
+      notesFormDiv.attr("style", "display: none");
+      // location.reload();
+    });
+  });
+
+  $("#closeNotes").on("click", (event) => {
+    console.log("close notere");
+    faveJobsDiv.attr("style", "display:inherit, box-sizing: inherit, ");
+    notesFormDiv.attr("style", "display: none");
+  });
+
+  formSubmitBtn.on("click", (event) => {
+    event.preventDefault;
+    const note = textArea.val();
+    const data = {
+      notes: note,
+      id: currentId,
+    };
+    $.ajax({
+      type: "PUT",
+      url: "/api/job",
+      data: data,
+    }).then(function (data) {
+      console.log("successfully added notes");
+    });
+    //console.log(currentId)
+    //location.reload();
+  });
+</script>
