@@ -21,6 +21,7 @@ $(document).ready(function () {
       jobName: $("#job-title").val().trim(),
       company: $("#company-name").val().trim(),
       stage: currentStage,
+      notes: $("#notes").val(),
       UserId: currentUserId,
     };
     $.ajax({
@@ -37,11 +38,24 @@ $(document).ready(function () {
 
   let targetId;
   const editBtn = $(".updateBtn");
+  const textArea = $("#notas");
   editBtn.on("click", function (event) {
-    // console.log($(this).parent().find(".card-section"));
     var elementToGrabVals = $(this).parent().find(".card-section");
     //console.log(event.target.parentNode.getAttribute("data-id"));
     targetId = event.target.parentNode.getAttribute("data-id");
+    // $.ajax({
+    //   type: "GET",
+    //   url: "/api/jobs",
+    // }).then(function (data) {
+    //   console.log(data);
+    //   console.log(data[targetId - 1]);
+    //   console.log(data[targetId - 1].notes);
+    //   textArea.text(data[targetId - 1].notes);
+    // });
+    // console.log($(this).parent().find(".card-section"));
+    // var elementToGrabVals = $(this).parent().find(".card-section");
+    //console.log(event.target.parentNode.getAttribute("data-id"));
+    // targetId = event.target.parentNode.getAttribute("data-id");
     //console.log(targetId);
     var $modal = $("#editModal");
     $("#job-title-edit").val(elementToGrabVals.find("h4").text());
@@ -50,6 +64,7 @@ $(document).ready(function () {
     );
     $("#position-edit").val(elementToGrabVals.find("p.currentPos").text());
     $("#stage-edit").val(elementToGrabVals.find("p.currentStage").text());
+    textArea.val(elementToGrabVals.find("p.currentNotes").text());
     $.ajax("/url").done(function (resp) {
       $modal.html(resp).foundation("open");
     });
@@ -67,6 +82,7 @@ $(document).ready(function () {
       jobName: $("#job-title-edit").val().trim(),
       company: $("#company-name-edit").val().trim(),
       stage: $("#stage-edit").val().trim(),
+      notes: textArea.val(),
       id: targetId,
     };
     $.ajax({
@@ -93,117 +109,20 @@ $(document).ready(function () {
     });
   });
 
-  const cardSectionEl = $(".card-section");
-  // const saveAlert = $(".saveAlert");
   const saveBtn = $(".saveBtn");
   saveBtn.on("click", (event) => {
-    var id = event.currentTarget.parentNode.parentNode.getAttribute("data-id");
+    const id = event.currentTarget.parentNode.parentNode.getAttribute("data-id");
     $.ajax({
       type: "PUT",
       url: "/api/job",
       data: { starred: 1, id: id },
     }).then(function (data) {
-      var savedText = $("<p>")
-        .text("Saved")
-        .attr(
-          "style",
-          "display: block; position: absolute;right: 4%;bottom: 0; font-size:1em"
-        );
-      cardSectionEl.append(savedText);
-      // saveAlert.attr("display:block");
+      $(`.kanban[data-id="${id}"]`).append($("<div class='save-message'>").text("Saved!"));
       setTimeout(function () {
-        saveAlert.attr("style", "display:none");
-      }, 2000);
-      // saveAlert.attr(
-      //   "style",
-      //   "display: block; position: absolute;right: 4%;bottom: 0; font-size:1em"
-      // );
-      // console.log("starred value");
-      // location.reload();
+        $(".save-message").remove();
+      }, 1500);
     });
   });
-
-  // const dragStart = (event) => {
-  //   event.currentTarget.classList.add("dragging");
-  // };
-
-  // const dragEnd = (event) => {
-  //   event.currentTarget.classList.remove("dragging");
-  // };
-
-  // Array.from(document.querySelectorAll(".card")).forEach((card) => {
-  //   card.addEventListener("dragstart", dragStart);
-  //   card.addEventListener("dragend", dragEnd);
-  // });
-
-  // const drag = (event) => {
-  //   event.dataTransfer.setData("text/html", event.currentTarget.outerHTML);
-  //   event.dataTransfer.setData("text/plain", event.currentTarget.dataset.id);
-  // };
-
-  // const dragEnter = (event) => {
-  //   event.currentTarget.classList.add("drop");
-  // };
-
-  // const dragLeave = (event) => {
-  //   event.currentTarget.classList.remove("drop");
-  // };
-
-  // Array.from(document.querySelectorAll(".column")).forEach((column) => {
-  //   column.addEventListener("dragenter", dragEnter);
-  //   column.addEventListener("dragleave", dragLeave);
-  // });
-
-  // const drop = (event) => {
-  //   Array.from(document.querySelectorAll(".column")).forEach((column) =>
-  //     column.classList.remove("drop")
-  //   );
-
-  //   document
-  //     .querySelector(`[data-id="${event.dataTransfer.getData("text/plain")}"]`)
-  //     .remove();
-
-  //   event.currentTarget.innerHTML =
-  //     event.currentTarget.innerHTML + event.dataTransfer.getData("text/html");
-  //   //console.log(event.currentTarget.lastElementChild.getAttribute("data-id"))
-  //   const id = event.currentTarget.lastElementChild.getAttribute("data-id");
-  //   const stage = event.currentTarget.lastElementChild.parentNode.getAttribute(
-  //     "id"
-  //   );
-  //   let newStage;
-  //   if (stage === "planning-to-apply") {
-  //     newStage = "Planning to Apply";
-  //   } else if (stage == "applied") {
-  //     newStage = "Applied";
-  //   } else if (stage == "phone-screen") {
-  //     newStage = "Phone Screen";
-  //   } else if (stage == "on-site") {
-  //     newStage = "On Site";
-  //   } else if (stage == "offers") {
-  //     newStage = "Offers";
-  //   } else if (stage == "rejected") {
-  //     newStage = "Rejected";
-  //   }
-  //   console.log("NEWSTAGE: " + newStage);
-  //   const data = {
-  //     stage: newStage,
-  //     id: id,
-  //   };
-  //   console.log("ID: " + id);
-  //   $.ajax({
-  //     url: "api/job",
-  //     type: "PUT",
-  //     data: data,
-  //   }).then(function (data) {
-  //     console.log("successfully changed status");
-  //     location.reload();
-  //   });
-  // };
-
-  // const allowDrop = (event) => {
-  //   event.preventDefault();
-  //   // console.log(event.currentTarget.lastElementChild.getAttribute("data-id"));
-  // };
 
   $.get("/api/user_data").then((dbUser) => {
     $(".user-name").text(dbUser.firstName);

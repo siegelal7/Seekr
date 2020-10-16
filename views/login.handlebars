@@ -11,7 +11,8 @@
     <button type="submit" class="sign-in-form-button">Sign In</button>
   </div>
 </form> --}}
-        <h2 class="text-center">Seekr</h2>
+        <h2 class="text-center" id="login-title">Seekr</h2>
+        <div class="error-message"></div>
         <form class="login">
           <div class="form-group">
             <input type="email" class="login-form-username" id="email-input" placeholder="Email">
@@ -64,9 +65,9 @@
     })
       .then(function() {
         window.location.replace("/");
-        // If there's an error, log the error
       })
       .catch(function(err) {
+        $(".error-message").text("Incorrect username or password");
         console.log(err);
       });
   }

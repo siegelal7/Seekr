@@ -23,7 +23,7 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: true,
       },
     },
-    { timestamps: false }
+    // { timestamps: false }
   );
   //   Job.associate = function (models) {
   //     Job.belongsTo(models.User, {
