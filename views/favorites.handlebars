@@ -119,7 +119,9 @@
       type: "GET",
       url: "/api/jobs",
     }).then(function (data) {
-      console.log(data.notes);
+      //console.log(currentId)
+      //console.log(data[currentId-1].notes);
+      textArea.text(data[currentId-1].notes);
     });
     //  console.log("clicked");
     //console.log(event.currentTarget.parentNode.getAttribute("data-id"))
@@ -135,11 +137,7 @@
     position: relative;`
     );
     faveJobsDiv.attr("style", "display:none");
-    // var button = $(
-    //   "<button class='button tiny' id='closeNotes' style='position:absolute; top:0; right:0'>"
-    // ).text("X");
-    // notesFormDiv.append(button);
-    // let closeNotesBtn = $("#closeNotes");
+   
     closeNotesBtn.on("click", (event) => {
       // console.log("close notere");
       faveJobsDiv.attr("style", "display:inherit, box-sizing: inherit, ");
