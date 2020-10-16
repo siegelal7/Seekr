@@ -103,7 +103,7 @@ async function determineStage(data) {
     yData.push(obj.onSite.length);
     yData.push(obj.offers.length);
     yData.push(obj.rejected.length);
-    console.log(yData);
+    // console.log(yData);
     resolve(yData);
   });
 }
