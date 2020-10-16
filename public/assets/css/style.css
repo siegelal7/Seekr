@@ -57,7 +57,7 @@ img {
   opacity: 1;
 }
 
-#employers {
+/* #employers {
   position: absolute;
   right: 82%;
   top: 30%;
@@ -66,14 +66,14 @@ img {
   opacity: 0.8;
   box-shadow: 0 5px rgb(19, 32, 102);
   border-radius: 5px;
-}
+} */
 
 #employees {
-  position: absolute;
-  right: 4%;
-  top: 30%;
-  height: 12em;
-  width: 15em;
+  position: absolute; 
+  right: 23.5%;
+  top: 68%;
+  height: 6em;
+  width: 70em;
   opacity: 0.8;
   box-shadow: 0 5px rgb(19, 32, 102);
   border-radius: 5px;
@@ -193,17 +193,17 @@ img {
 
 .applied {
   /* background: #8ce3f9ce; */
-  background: rgba(145, 174, 221, 0.788);
+  background: rgba(156, 167, 185, 0.788);
 }
 
 .phone {
   /* background: #d58cfad2; */
-  background: rgba(90, 145, 228, 0.788);
+  background: rgba(135, 164, 207, 0.788);
 }
 
 .onSite {
   /* background: #fe62b0cb; */
-  background: rgba(49, 211, 176, 0.788);
+  background: rgba(94, 153, 209, 0.788);
 }
 
 .offers {
@@ -221,7 +221,7 @@ img {
   padding-top: 10px;
   height: 3rem;
   border: 1px solid rgba(0, 0, 0, 0.199);
-  background-color: rgb(250, 249, 255);
+  background-color: #8cb7d3;
   font-family: "Archivo", sans-serif;
   font-weight: 600;
   opacity: 0.885;
@@ -256,5 +256,15 @@ img {
   background: none; 
   color: rgb(54, 54, 54);
   border-radius: 3px;
+}
+
+.save-message {
+  color: rgb(253, 253, 207); 
+  display: block; 
+  position: absolute;
+  right: 4%;
+  bottom: 0; 
+  font-size:1em;
+  font-weight: 600;
 }
 
