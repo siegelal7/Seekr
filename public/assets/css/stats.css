@@ -20,7 +20,9 @@ canvas {
   z-index: -10;
 }
 
-#graphDiv {
+#graphDiv, #jobsAppliedDiv {
+  display: inline-block;
   height: 30rem;
   width: 50rem; 
+  margin-top: 2rem;
 }
