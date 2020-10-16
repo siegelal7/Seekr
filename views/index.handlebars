@@ -22,7 +22,7 @@
       <li><a href="/favorites">Favorites</a></li>
       <li><a href="/about-us">About Us</a></li>
       {{!-- <li style="position: absolute;right:0;"><a href="/login">Login</a></li> --}}
-      <li style="position: absolute;right:0;"><a href="/logout">Logout</a></li>
+      <li style="position: absolute;right:0;"><a href="/logout" id="loginLogout">Logout</a></li>
     </ul>
   </div>
 </div>
@@ -55,5 +55,12 @@
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
   <script src="/assets/js/particlesHomePage.js"></script>
-
+ <script>
+   const loginLogout= $("#loginLogout");
+   if (req.user){
+     console.log('logged in')
+   } else{
+     console.log('logged out')
+   }
+ </script>
 
