@@ -101,7 +101,7 @@ $(document).ready(function () {
       url: "/api/job",
       data: { starred: 1, id: id },
     }).then(function (data) {
-      $(`.kanban[data-id="${id}"]`).append($("<div class='save-message'>").text("saved!"));
+      $(`.kanban[data-id="${id}"]`).append($("<div class='save-message'>").text("Saved!"));
       setTimeout(function () {
         $(".save-message").remove();
       }, 1500);
