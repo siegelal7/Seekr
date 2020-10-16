@@ -13,7 +13,21 @@
     </ul>
   </div>
 </div> --}}
-{{> header}}
+<div id="particles-js"></div>  
+<div class="row">
+  <div class="header columns">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li><img src="/assets/LOGO-SEEKR-tiny.jpg" style="height: 2.5em; width: 5.3em; margin-left:0.4em;cursor:pointer" id="logo"></li>
+      <li>
+        <a href="/job-board">View Job Board</a>
+      </li>
+      <li><a href="/stats">Application Stats</a></li>
+      <li><a href="/favorites">Starred Jobs</a></li>
+      <li><a href="/about-us">About Us</a></li>
+      <li><a href="/logout" style='position:absolute; right:0'>Logout</a></li>
+    </ul>
+  </div>
+</div>
 
 <div class="grid-container full">
   <div class="grid-x small-up-6 medium-up-6">
@@ -52,7 +66,7 @@
         value="On Site"
         data-open="exampleModal1"
         class="addNewProspect button tiny"
-        style="position: absolute; right: 0; top: 0; opacity: 0.5"
+        style="position: absolute; right: 0; top: 0; opacity: 0.5;"
       >
         +
       </button>
@@ -155,7 +169,8 @@
           Edit
         </button>
         <div class="card-section">
-          <h4>{{ this.jobName }}</h4>
+          <button class="saveBtn button tiny" style="position: absolute; right:0;">Save</button>
+          <h4 class="job-card-title">{{ this.jobName }}</h4>
           <p class="currentCompany">{{ this.company }}</p>
           <p class="currentStage" style="display:none">{{ this.stage }}</p>
         </div>
@@ -197,7 +212,8 @@
           Edit
         </button>
         <div class="card-section">
-          <h4>{{ this.jobName }}</h4>
+          <button class="saveBtn button tiny" style="position: absolute; right:0;">Save</button>
+          <h4 class="job-card-title">{{ this.jobName }}</h4>
           <p class="currentCompany">{{ this.company }}</p>
           <p class="currentStage" style="display:none">{{ this.stage }}</p>
         </div>
@@ -239,7 +255,8 @@
           Edit
         </button>
         <div class="card-section">
-          <h4>{{ this.jobName }}</h4>
+          <button class="saveBtn button tiny" style="position: absolute; right:0;">Save</button>
+          <h4 class="job-card-title">{{ this.jobName }}</h4>
           <p class="currentCompany">{{ this.company }}</p>
           <p class="currentStage" style="display:none">{{ this.stage }}</p>
         </div>
@@ -280,7 +297,8 @@
           Edit
         </button>
         <div class="card-section">
-          <h4>{{ this.jobName }}</h4>
+          <button class="saveBtn button tiny" style="position: absolute; right:0;">Save</button>
+          <h4 class="job-card-title">{{ this.jobName }}</h4>
           <p class="currentCompany">{{ this.company }}</p>
           <p class="currentStage" style="display:none">{{ this.stage }}</p>
         </div>
@@ -322,7 +340,8 @@
           Edit
         </button>
         <div class="card-section">
-          <h4>{{ this.jobName }}</h4>
+          <button class="saveBtn button tiny" style="position: absolute; right:0;">Save</button>
+          <h4 class="job-card-title">{{ this.jobName }}</h4>
           <p class="currentCompany">{{ this.company }}</p>
           <p class="currentStage" style="display:none">{{ this.stage }}</p>
         </div>
@@ -366,7 +385,8 @@
           Edit
         </button>
         <div class="card-section">
-          <h4>{{ this.jobName }}</h4>
+          <button class="saveBtn button tiny" style="position: absolute; right:0;">Save</button>
+          <h4 class="job-card-title">{{ this.jobName }}</h4>
           <p class="currentCompany">{{ this.company }}</p>
           <p class="currentStage" style="display:none">{{ this.stage }}</p>
         </div>
@@ -412,6 +432,10 @@
     </div>
   </div>
 </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+  <script src="/assets/js/particlesHomePage.js"></script>
 
 <!-- had to import jquery here for it to work for some reason.. -->
 <script
