@@ -115,6 +115,12 @@
   const textArea = $("#notes");
 
   notesBtn.on("click", (event) => {
+    $.ajax({
+      type: "GET",
+      url: "/api/jobs",
+    }).then(function (data) {
+      console.log(data.notes);
+    });
     //  console.log("clicked");
     //console.log(event.currentTarget.parentNode.getAttribute("data-id"))
     currentId = event.currentTarget.parentNode.getAttribute("data-id");
