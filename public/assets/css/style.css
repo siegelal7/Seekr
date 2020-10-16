@@ -25,7 +25,6 @@ canvas {
   opacity: 0.875;
 }
 
-
 .top-card {
   margin-top: 1%;
   justify-content: center;
@@ -69,9 +68,6 @@ img {
 } */
 
 #employees {
-  position: absolute; 
-  right: 23.5%;
-  top: 68%;
   height: 6em;
   width: 70em;
   opacity: 0.8;
@@ -87,10 +83,10 @@ img {
 /* BEGIN JOB-BOARD PAGE ===========================================================================================*/
 
 .kanban {
-  background:#8cb7d3;
+  background: #8cb7d3;
   cursor: grab;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 7px; 
+  border-radius: 7px;
   padding-left: 20px;
   border: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -118,12 +114,12 @@ img {
 }
 
 .deleteBtn {
-  margin: 0px; 
+  margin: 0px;
   height: 2rem;
   visibility: hidden;
   position: absolute;
-  top: 50%;  
-  left: 30%; 
+  top: 50%;
+  left: 30%;
 
   transform: translate(-70%, -50%);
 
@@ -139,8 +135,8 @@ img {
   height: 2rem;
   visibility: hidden;
   position: absolute;
-  top: 50%;  
-  left: 50%; 
+  top: 50%;
+  left: 50%;
 
   transform: translate(-50%, -50%);
 
@@ -163,8 +159,8 @@ img {
   height: 2rem;
   visibility: hidden;
   position: absolute;
-  top: 50%;  
-  left: 70%; 
+  top: 50%;
+  left: 70%;
 
   transform: translate(-30%, -50%);
 
@@ -174,7 +170,6 @@ img {
 .kanban:hover .saveBtn {
   visibility: visible;
 }
-
 
 /* Styling for each column in the job_board.handlebars page */
 .cell-col {
@@ -248,12 +243,12 @@ img {
 }
 
 .addNewProspect {
-  position: absolute; 
-  right: 0; 
-  top: 0; 
-  opacity: 0.5; 
-  font-size: medium!important; 
-  background: none; 
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 0.5;
+  font-size: medium !important;
+  background: none;
   color: rgb(54, 54, 54);
   border-radius: 3px;
 }

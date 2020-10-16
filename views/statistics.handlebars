@@ -68,11 +68,28 @@
           "Rejected",
         ],
         y: res,
-        title: "Job Search Stages",
         type: "bar",
+        marker: {
+          color: [
+            "rgba(187, 187, 194, 0.788)",
+            "rgba(156, 167, 185, 0.788)",
+            "rgba(135, 164, 207, 0.788)",
+            "rgba(94, 153, 209, 0.788)",
+            "rgba(62, 231, 113, 0.788)",
+            "rgba(219, 79, 79, 0.788)",
+          ],
+        },
       },
     ];
+    var layout = {
+      title: "Job Application Stats",
+      {{!-- plot_bgcolor:"#FFF3",
+      paper_bgcolor:"#FFF3", --}}
+      yaxis: {
+        dtick: 1
+      }
+    };
 
-    Plotly.newPlot("graphDiv", data);
+    Plotly.newPlot("graphDiv", data, layout);
   });
 </script>

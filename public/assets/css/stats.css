@@ -19,3 +19,8 @@ canvas {
   background-position: 50% 50%;
   z-index: -10;
 }
+
+#graphDiv {
+  height: 30rem;
+  width: 50rem; 
+}
