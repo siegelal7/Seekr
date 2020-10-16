@@ -123,9 +123,9 @@ img {
   visibility: hidden;
   position: absolute;
   top: 50%;  
-  left: 40%; 
+  left: 30%; 
 
-  transform: translate(-60%, -50%);
+  transform: translate(-70%, -50%);
 
   z-index: 5;
 }
@@ -140,9 +140,9 @@ img {
   visibility: hidden;
   position: absolute;
   top: 50%;  
-  left: 60%; 
+  left: 50%; 
 
-  transform: translate(-40%, -50%);
+  transform: translate(-50%, -50%);
 
   z-index: 5;
 }
@@ -157,6 +157,22 @@ img {
 
 .currentCompany {
   color: rgb(240, 235, 235);
+}
+
+.saveBtn {
+  height: 2rem;
+  visibility: hidden;
+  position: absolute;
+  top: 50%;  
+  left: 70%; 
+
+  transform: translate(-30%, -50%);
+
+  z-index: 5;
+}
+
+.kanban:hover .saveBtn {
+  visibility: visible;
 }
 
 
