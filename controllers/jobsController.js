@@ -60,7 +60,7 @@ router.get("/stats", isAuthenticated, (req, res) => {
     var yData = await determineStage(data);
 
     // console.log("TESST " + test);
-    res.render("statistics", { jobs: yData, style: "style.css" });
+    res.render("statistics", { jobs: yData, style: "stats.css" });
   });
 });
 

@@ -252,3 +252,14 @@ img {
   color: rgb(54, 54, 54);
   border-radius: 3px;
 }
+
+.save-message {
+  color: rgb(255, 238, 0); 
+  display: block; 
+  position: absolute;
+  right: 4%;
+  bottom: 0; 
+  font-size:1em;
+  font-weight: 600;
+}
+

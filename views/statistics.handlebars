@@ -83,6 +83,11 @@
     ];
     var layout = {
       title: "Job Application Stats",
+      {{!-- plot_bgcolor:"#FFF3",
+      paper_bgcolor:"#FFF3", --}}
+      yaxis: {
+        dtick: 1
+      }
     };
 
     Plotly.newPlot("graphDiv", data, layout);
