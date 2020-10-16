@@ -26,26 +26,13 @@ router.get("/favorites", isAuthenticated, (req, res) => {
   db.Job.findAll({
     where: {
       UserId: req.user.id,
+      starred: 1
     },
   }).then(function (data) {
     // console.log(data[0].dataValues);
     // var test = await determineStage(data);
     // console.log("TESST " + test);
     res.render("favorites", { jobs: data, style: "style.css" });
-  });
-});
-
-router.get("/api/ydata", isAuthenticated, (req, res) => {
-  db.Job.findAll({
-    where: {
-      UserId: req.user.id,
-    },
-  }).then(async function (data) {
-    // console.log(data[0].dataValues);
-    var yData = await determineStage(data);
-
-    // console.log("TESST " + test);
-    res.json(yData);
   });
 });
 
@@ -64,6 +51,69 @@ router.get("/stats", isAuthenticated, (req, res) => {
   });
 });
 
+router.get("/about-us", (req, res) => {
+  res.render("about_us", { style: "about-us.css" });
+});
+
+//========================API ROUTES==============================
+// Returns all job cards
+router.get("/api/jobs", (req, res) => {
+  db.Job.findAll().then((dbJob) => res.json(dbJob));
+});
+
+// Creates job
+router.post("/api/job", (req, res) => {
+  db.Job.create(req.body).then((dbJob) => res.json(dbJob));
+});
+
+// Delete job by id
+router.delete("/api/job/:id", (req, res) => {
+  db.Job.destroy({
+    where: {
+      id: req.params.id,
+    },
+  }).then((dbJob) => res.json(dbJob));
+});
+
+// Update job details by id
+router.put("/api/job/", (req, res) => {
+  db.Job.update(req.body, {
+    where: {
+      id: req.body.id,
+    },
+  }).then((dbJob) => res.json(dbJob));
+});
+
+// API for retrieving job stages data and manipulating the data
+router.get("/api/ydata", isAuthenticated, (req, res) => {
+  db.Job.findAll({
+    where: {
+      UserId: req.user.id,
+    },
+  }).then(async function (data) {
+    // console.log(data[0].dataValues);
+    var yData = await determineStage(data);
+
+    // console.log("TESST " + test);
+    res.json(yData);
+  });
+});
+
+//General API for retrieving job by user id
+router.get("/api/userAuthJobs", isAuthenticated, (req, res) => {
+  db.Job.findAll({
+    attributes: ['id', 'jobName', 'company', 'stage', 'starred',
+    [sequelize.fn('date_format', sequelize.col('createdAt'), '%Y-%m-%d'), 'createdAt_formatted']
+  ],
+    where: {
+      UserId : req.user.id,
+    },
+  }).then((dbJobs) => res.json(dbJobs));
+});
+
+
+//TODO: MOVE TO SEPERATE FILE
+// Function for determining stage of jobs before sending to stats handlebars
 async function determineStage(data) {
   return new Promise((resolve, rej) => {
     var obj = {
@@ -108,37 +158,5 @@ async function determineStage(data) {
   });
 }
 
-router.get("/about-us", (req, res) => {
-  res.render("about_us", { style: "about-us.css" });
-});
-
-//========================API ROUTES==============================
-// Returns all job cards
-router.get("/api/jobs", (req, res) => {
-  db.Job.findAll().then((dbJob) => res.json(dbJob));
-});
-
-// Creates job
-router.post("/api/job", (req, res) => {
-  db.Job.create(req.body).then((dbJob) => res.json(dbJob));
-});
-
-// Delete job by id
-router.delete("/api/job/:id", (req, res) => {
-  db.Job.destroy({
-    where: {
-      id: req.params.id,
-    },
-  }).then((dbJob) => res.json(dbJob));
-});
-
-// Update job details by id
-router.put("/api/job/", (req, res) => {
-  db.Job.update(req.body, {
-    where: {
-      id: req.body.id,
-    },
-  }).then((dbJob) => res.json(dbJob));
-});
 
 module.exports = router;
