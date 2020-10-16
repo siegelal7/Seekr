@@ -93,6 +93,7 @@ $(document).ready(function () {
     });
   });
 
+  const saveAlert = $("#saveAlert");
   const saveBtn = $(".saveBtn");
   saveBtn.on("click", (event) => {
     var id = event.currentTarget.parentNode.parentNode.getAttribute("data-id");
@@ -101,7 +102,16 @@ $(document).ready(function () {
       url: "/api/job",
       data: { starred: 1, id: id },
     }).then(function (data) {
-      console.log("starred value");
+      saveAlert.text("saved!");
+      // saveAlert.attr("display:block");
+      setTimeout(function () {
+        saveAlert.attr("style", "display:none");
+      }, 2000);
+      saveAlert.attr(
+        "style",
+        "    display: block; position: absolute;right: 4%;bottom: 0; font-size:1em"
+      );
+      // console.log("starred value");
       // location.reload();
     });
   });

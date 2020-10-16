@@ -45,7 +45,7 @@
     {{#each jobs}}
     {{#if starred}}
     <div class="cell">
-      <div class="card">
+      <div class="card" style="background: #273742; text-align: center">
         <!-- <div class="card-divider"></div> -->
         <div class="card-section" data-id="{{ this.id }}">
           {{!--
@@ -54,9 +54,9 @@
           </p>
           --}}
           <button class="notesBtn button tiny">Write Notes</button>
-          <h4>{{ this.jobName }}</h4>
-          <p>{{ this.company }}</p>
-          <p>{{ this.stage }}</p>
+          <h4>Title: {{ this.jobName }}</h4>
+          <p>Company: {{ this.company }}</p>
+          <p>Stage: {{ this.stage }}</p>
         </div>
       </div>
     </div>
