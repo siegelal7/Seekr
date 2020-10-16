@@ -28,7 +28,7 @@ Navigate to https://seekr-jobs.herokuapp.com/ to get started.
 
 # Technologies
 
-Express Handlebars, CSS, Foundation CSS Framework, JavaScript, JQuery, node.JS, Plotly graphing
+Express Handlebars, CSS, Foundation CSS Framework, JavaScript, JQuery, node.JS, Plotly graphing, Passport authentication
 
 ## Credits
 
