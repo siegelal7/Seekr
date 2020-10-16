@@ -36,4 +36,4 @@ Drag and drop functionality - https://medium.com/javascript-in-plain-english/how
 
 ## Questions
 
-siegelal@protonmail.com || bmagrish@gmail.com || syd.buch@gmail.com || dpan5425@gmail.com [Andrew's Github page](https://www.github.com/siegelal7) || [Syd's Github page](https://github.com/SBuchanan1) || [David's Github page](https://github.com/dpan-5) || [Magrish's Github page](https://github.com/Magrishb)
+siegelal@protonmail.com || dpan5425@gmail.com || syd.buch@gmail.com || bmagrish@gmail.com [Andrew's Github page](https://www.github.com/siegelal7) || [David's Github page](https://github.com/dpan-5) || [Syd's Github page](https://github.com/SBuchanan1) || [Magrish's Github page](https://github.com/Magrishb)
