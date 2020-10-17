@@ -20,7 +20,11 @@
       <li><a href="/stats">Application Stats</a></li>
       <li><a href="/favorites">Favorites</a></li>
       <li><a href="/about-us">About Us</a></li>
-      <li><a href="/logout" style="position: absolute; right: 0">Logout</a></li>
+      {{#if login }}
+      <a href="/logout" style="position: absolute; right:0;">Logout</a>
+      {{ else }} 
+      <a href="/login" style="position: absolute; right:0;">Login</a>
+      {{/if }}
 
       {{!--
       <li style="position: absolute; right: 0"><a href="/login">Login</a></li>

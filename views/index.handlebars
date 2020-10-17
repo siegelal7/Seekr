@@ -47,12 +47,11 @@
       <li><a href="/stats">Application Stats</a></li>
       <li><a href="/favorites">Favorites</a></li>
       <li><a href="/about-us">About Us</a></li>
-      {{!--
-      <li style="position: absolute; right: 0"><a href="/login">Login</a></li>
-      --}}
-      {{!-- <li style="position: absolute; right: 0">
-        <a href="/logout" id="loginLogout">Logout</a>
-      </li> --}}
+      {{#if login }}
+      <a href="/logout" style="position: absolute; right:0;">Logout</a>
+      {{ else }} 
+      <a href="/login" style="position: absolute; right:0;">Login</a>
+      {{/if }}
     </ul>
   </div>
 </div>
@@ -99,10 +98,10 @@
         <h1 class="text-center" style="font:bold;background: -webkit-linear-gradient(#e7feff, #7fb0d1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">DON'T LOSE YOUR DREAM JOB!</h1>
         <p class="text-center"style=" color: #e7feff;">Log all of your applications from start to finish and track every step of your hiring process including statistics! Click 'View Job Board' to access the Job Board and post all of your applications through our easy interface. Click and drag your application though the steps and NEVER lose track of your OPPORTUNITIES!</p>
         <h2 class="text-center" style="color: #e7feff;">MANAGE YOUR APPLICATIONS WITH EASE</h2>
+        <!-- <br>
         <br>
         <br>
-        <br>
-        <br>
+        <br> -->
         <!-- <figcaption class="orbit-caption">WELCOME TO SEEKR</figcaption> -->
 
     </li>
@@ -153,9 +152,10 @@
 <script src="/assets/js/particlesHomePage.js"></script>
 <script>
   const loginLogout = $("#loginLogout");
-  if (req.user) {
-    console.log("logged in");
-  } else {
-    console.log("logged out");
-  }
+  
+  // if (req.user) {
+  //   console.log("logged in");
+  // } else {
+  //   console.log("logged out");
+  // }
 </script>
