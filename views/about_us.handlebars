@@ -14,12 +14,15 @@
           id="logo"
         />
       </li>
+      {{!-- Only show these if logged on... can change if we dont like --}}
+      {{#if login }}
       <li>
         <a href="/job-board">View Job Board</a>
       </li>
       <li><a href="/stats">Application Stats</a></li>
       <li><a href="/favorites">Favorites</a></li>
       <li><a href="/about-us">About Us</a></li>
+      {{/if}}
       {{#if login }}
       <a href="/logout" style="position: absolute; right:0;">Logout</a>
       {{ else }} 
