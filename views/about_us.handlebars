@@ -14,13 +14,20 @@
           id="logo"
         />
       </li>
+      {{!-- Only show these if logged on... can change if we dont like --}}
+      {{#if login }}
       <li>
         <a href="/job-board">View Job Board</a>
       </li>
       <li><a href="/stats">Application Stats</a></li>
       <li><a href="/favorites">Favorites</a></li>
       <li><a href="/about-us">About Us</a></li>
-      <li><a href="/logout" style="position: absolute; right: 0">Logout</a></li>
+      {{/if}}
+      {{#if login }}
+      <a href="/logout" style="position: absolute; right:0;">Logout</a>
+      {{ else }} 
+      <a href="/login" style="position: absolute; right:0;">Login</a>
+      {{/if }}
 
       {{!--
       <li style="position: absolute; right: 0"><a href="/login">Login</a></li>
@@ -64,7 +71,7 @@
     Helping you stay organized throughout your job search
   </p>
   <p class="blockquote-text--credit">Our Mission</p>
-  <a><img src="/assets/LOGO-SEEKR-tiny.jpg" style="height: 2.3em; width: 5.3em; margin-center:0.4em" id="logo"></li>
+  <a href="/"><img src="/assets/LOGO-SEEKR-tiny.jpg" style="height: 2.3em; width: 5.3em; margin-center:0.4em"></li></a>
 </blockquote>
 
 
@@ -77,9 +84,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-  const logo = $("#logo");
-  logo.on("click", function (event) {
-    location.replace("/");
-  });
+  
 
 </script>

@@ -31,7 +31,6 @@ canvas {
   background: #8cb7d3 !important;
   opacity: 0.875;
 }
- 
 
 /* .imageDiv {
   text-align: center;
@@ -43,7 +42,7 @@ canvas {
 .orbit {
   height: 50%;
   width: 50%;
-  margin: auto;  
+  margin: auto;
 }
 
 /* .text-center {
@@ -51,7 +50,6 @@ canvas {
 } */
 p {
   font-size: 01.5rem;
-
 }
 
 .homePageChoice {
@@ -262,12 +260,11 @@ p {
 }
 
 .save-message {
-  color: rgb(255, 238, 0); 
-  display: block; 
+  color: rgb(255, 238, 0);
+  display: block;
   position: absolute;
   right: 4%;
-  bottom: 0; 
-  font-size:1em;
+  bottom: 0;
+  font-size: 1em;
   font-weight: 600;
 }
-
