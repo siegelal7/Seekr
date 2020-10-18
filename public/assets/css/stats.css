@@ -5,11 +5,11 @@ body {
 }
 canvas {
   display: block;
-  /* vertical-align: bottom; */
+  vertical-align: bottom;
 }
 /* ---- particles.js container ---- */
 #particles-js {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   background-color: #273742;
@@ -26,10 +26,12 @@ canvas {
 
 #graphDiv,
 #jobsAppliedDiv {
-  /* margin-left: auto;
-  margin-right: auto; */
   display: inline-block;
   height: 30rem;
   width: 50rem;
-  margin-top: 2rem;
+  margin: 2rem;
+}
+
+.graph-container {
+  text-align: center;
 }

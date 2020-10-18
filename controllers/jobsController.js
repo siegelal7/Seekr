@@ -118,6 +118,16 @@ router.get("/api/userAuthJobs", isAuthenticated, (req, res) => {
   }).then((dbJobs) => res.json(dbJobs));
 });
 
+// API for retrieving job by job id
+router.get("/api/job/:id", isAuthenticated, (req,res) => {
+  db.Job.findOne({
+    where: {
+      id: req.params.id
+    }
+  }).then(job => res.json(job));
+});
+
+
 //TODO: MOVE TO SEPERATE FILE
 // Function for determining stage of jobs before sending to stats handlebars
 async function determineStage(data) {

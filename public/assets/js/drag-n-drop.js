@@ -118,13 +118,19 @@ $(document).ready(function () {
       data: { starred: 1, id: id },
     }).then(function (data) {
       $(`.kanban[data-id="${id}"]`).append($("<div class='save-message'>").text("Saved!"));
+
       setTimeout(function () {
         $(".save-message").remove();
       }, 1500);
     });
   });
 
+  // Used for "Hi [name]!" message on page
   $.get("/api/user_data").then((dbUser) => {
     $(".user-name").text(dbUser.firstName);
   });
+
+  
+
+
 });
