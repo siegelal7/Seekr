@@ -26,7 +26,7 @@
   </div>
 </div>
 
-<div class="grid-container" id="faveJobs" style="margin-top:2em">
+<div class="grid-container" id="faveJobs" style="margin-top: 2em">
   <div class="grid-x grid-margin-x small-up-2 medium-up-3">
     {{#each jobs}}
     <div class="cell">
@@ -47,7 +47,9 @@
       </div>
     </div>
     {{else}}
-      <p style="color:white; font-size: 2rem; font-weight: bold;">Uh oh, you don't have any favorited job cards currently</p>
+    <p style="color: white; font-size: 2rem; font-weight: bold">
+      Uh oh, you don't have any favorited job cards currently
+    </p>
     {{/each}}
   </div>
 </div>
@@ -107,12 +109,19 @@
       type: "GET",
       url: "/api/jobs",
     }).then(function (data) {
-      //console.log(currentId)
-      //console.log(data[currentId-1].notes);
-      textArea.text(data[currentId - 1].notes);
+      let text;
+      // console.log(currentId);
+      console.log(data);
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].id == currentId) {
+          text = data[i].notes;
+        }
+      }
+      textArea.text(text);
+      //TODO: here was the bad logic from before.. breaks with more than 1 user or deleted notes
+      // textArea.text(data[currentId - 1].notes);
     });
-    //  console.log("clicked");
-    //console.log(event.currentTarget.parentNode.getAttribute("data-id"))
+
     currentId = event.currentTarget.parentNode.getAttribute("data-id");
     notesFormDiv.attr(
       "style",
