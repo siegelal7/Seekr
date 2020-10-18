@@ -97,7 +97,11 @@
 
 
 <div style="position: relative; width:100%; text-align:center"> 
+  {{#if login}}
   <a href="/job-board"><button class="homePageChoice button" id="employees"><div id="get-started-text">View job board</div></button></a>
+  {{else}}
+  <a href="/login"><button class="homePageChoice button" id="employees"><div id="get-started-text">Login to get started</div></button></a>
+  {{/if}}
 </div> 
 
 {{!--
