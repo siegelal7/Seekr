@@ -100,7 +100,7 @@ p {
 
 .login-button:hover {
     background-color: navy;
-    border-color: #ffffff;
+    border-color: navy;
 }
 
 a {
@@ -108,7 +108,7 @@ a {
 }
 
 a:hover {
-    color: rgb(71, 186, 221);
+    color: rgb(77, 148, 170);
 }
 
 input::placeholder {
