@@ -111,7 +111,7 @@
     }).then(function (data) {
       let text;
       // console.log(currentId);
-      console.log(data);
+      // console.log(data);
       for (let i = 0; i < data.length; i++) {
         if (data[i].id == currentId) {
           text = data[i].notes;
@@ -145,7 +145,7 @@
 
   $("#closeNotes").on("click", (event) => {
     //console.log("close notere");
-    faveJobsDiv.attr("style", "display:inherit, box-sizing: inherit, ");
+    faveJobsDiv.attr("style", "display:inherit, box-sizing: inherit");
     notesFormDiv.attr("style", "display: none");
   });
 
