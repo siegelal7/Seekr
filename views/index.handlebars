@@ -1,4 +1,3 @@
-
 <div id="particles-js"></div>
 <div class="row">
   <div class="header columns">
@@ -52,17 +51,14 @@
 </div>
 
 <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;">
-  <ul class="orbit-container">
-    {{!-- <div class="orbit-wrapper"> --}}
-    {{!-- <div class="orbit-controls"> --}}
+  <ul class="orbit-container" style="display:flex; align-items:center;">
     <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
     <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
     
-    <li class="orbit-slide is-active">
-        <img class="orbit-image" src="/assets/LOGO-SEEKR.jpg" alt="SEEKR">
-        <figcaption class="orbit-caption">SEEKR</figcaption>
+    <li class="orbit-slide is-active" style="text-align: center;">
+        <img class="orbit-image" src="/assets/Group_15_1.png" alt="SEEKR" style="height:13em; width:48em;">
     </li>
-    <li class="orbit-slide" >
+    <li class="orbit-slide">
         <img class="orbit-image" style="content-align:center">    
         <img src="https://dynamicbusiness.com.au/wp-content/uploads/2019/01/Employees.jpg" alt="fun-workplace" style="height:30em; width:60em">
         <figcaption class="orbit-caption">Your Workspace, Your Move</figcaption>
@@ -72,18 +68,10 @@
         <img src="https://ae01.alicdn.com/kf/HTB1enH.JFXXXXaXXpXXq6xXFXXX3/Custom-photo-wallpaper-New-York-skyscraper-murals-for-apartments-residential-office-background-wall-waterproof-wallpaper.jpg" alt="fun-workplace" style="height:30em; width:60em">
         <figcaption class="orbit-caption">Take control of your CITY!</figcaption>
     </li>
-    <li class="orbit-slide"">
-        <h1 class="text-center" style="font:bold;background: -webkit-linear-gradient(#e7feff, #7fb0d1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">DON'T LOSE YOUR DREAM JOB!</h1>
-        <p class="text-center"style=" color: #e7feff;">Log all of your applications from start to finish and track every step of your hiring process including statistics! Click 'View Job Board' to access the Job Board and post all of your applications through our easy interface. Click and drag your application though the steps and NEVER lose track of your OPPORTUNITIES!</p>
-        <h2 class="text-center" style="color: #e7feff;">MANAGE YOUR APPLICATIONS WITH EASE</h2>
-        <!-- <br>
-        <br>
-        <br>
-        <br> -->
-        <!-- <figcaption class="orbit-caption">WELCOME TO SEEKR</figcaption> -->
-
+    <li class="orbit-slide">
+        <h1 class="text-center" style="font-weight:bold;background: -webkit-linear-gradient(#e7feff, #7fb0d1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">DON'T LOSE YOUR DREAM JOB!</h1>
+        <p class="text-center"style=" color: #e7feff;">Log all of your applications from start to finish and track every step of your recruiting process including statistics! Click 'View Job Board' to access the Job Board and post all of your applications through our easy interface. Click and drag your application though the steps and NEVER lose track of your OPPORTUNITIES!</p>
     </li>
-      {{!-- </div> --}}
   </ul>
   <nav class="orbit-bullets">
     <button class="is-active" data-slide="0">
@@ -104,25 +92,6 @@
   <a href="/login"><button class="homePageChoice button" id="employees"><div id="get-started-text">Login to get started</div></button></a>
   {{/if}}
 </div> 
-
-{{!--
-<div class="top-card callout primary" data-closable>
-  <h5>Your Future is in Your Hands</h5>
-  <p>
-    Take control of your job search. Keep track of your prospects and
-    action-steps.
-  </p>
-  <a href="#">It's dangerous to go alone, take this.</a>
-  <button
-    class="close-button"
-    aria-label="Dismiss alert"
-    type="button"
-    data-close
-  >
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
---}}
 
 <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
