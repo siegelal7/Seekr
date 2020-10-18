@@ -26,8 +26,25 @@
   </div>
 </div>
 
+<div class="top-card callout primary" data-closable>
+  <!-- <h5>Your Future is in Your Hands</h5> -->
+  <p>
+    Take notes on your research on the company, who you've spoken with or were
+    referred by,<br />
+    action-steps to increase your hiring chance, etc!
+  </p>
+  <button
+    class="close-button"
+    aria-label="Dismiss alert"
+    type="button"
+    data-close
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
 <div class="grid-container" id="faveJobs" style="margin-top: 2em">
-  <div class="grid-x grid-margin-x small-up-2 medium-up-3">
+  <div class="cards grid-x grid-margin-x small-up-2 medium-up-3">
     {{#each jobs}}
     <div class="cell">
       <div class="card" style="background: #273742; text-align: center">
@@ -41,7 +58,7 @@
           <button class="notesBtn button tiny">Write Notes</button>
           <h4>Title: {{ this.jobName }}</h4>
           <p>Company: {{ this.company }}</p>
-          <p>Stage: {{ this.stage }}</p>
+          <p class="stageName">Stage: {{ this.stage }}</p>
           <button class="unSave button tiny">Remove from Favorites</button>
         </div>
       </div>
@@ -95,6 +112,23 @@
 <script src="/assests/js/faves.js"></script>
 --}}
 <script>
+  const stageName = document.getElementsByClassName("stageName");
+  // console.log(stageName[0].innerText);
+  for (let i = 0; i < stageName.length; i++) {
+    if (stageName[i].innerText == "Stage: Planning to Apply") {
+      stageName[i].style.color = "rgba(187, 187, 194, 0.888)";
+    } else if (stageName[i].innerText == "Stage: Applied") {
+      stageName[i].style.color = "rgba(156, 167, 185, 0.888)";
+    } else if (stageName[i].innerText == "Stage: Phone Screen") {
+      stageName[i].style.color = "rgba(135, 164, 207, 0.98)";
+    } else if (stageName[i].innerText == "Stage: On Site") {
+      stageName[i].style.color = "rgba(94, 153, 209, 0.98)";
+    } else if (stageName[i].innerText == "Stage: Offers") {
+      stageName[i].style.color = "rgba(62, 231, 113, 0.98)";
+    } else if (stageName[i].innerText == "Stage: Rejected") {
+      stageName[i].style.color = "rgba(219, 79, 79, 0.88)";
+    }
+  }
   const notesBtn = $(".notesBtn");
   const faveJobsDiv = $("#faveJobs");
   const notesFormDiv = $("#notesForm");
@@ -111,7 +145,7 @@
     }).then(function (data) {
       let text;
       // console.log(currentId);
-      console.log(data);
+      // console.log(data);
       for (let i = 0; i < data.length; i++) {
         if (data[i].id == currentId) {
           text = data[i].notes;
@@ -145,7 +179,7 @@
 
   $("#closeNotes").on("click", (event) => {
     //console.log("close notere");
-    faveJobsDiv.attr("style", "display:inherit, box-sizing: inherit, ");
+    faveJobsDiv.attr("style", "display:inherit, box-sizing: inherit");
     notesFormDiv.attr("style", "display: none");
   });
 
