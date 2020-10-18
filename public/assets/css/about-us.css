@@ -14,7 +14,7 @@ body {
   margin-top: 7%;
 }
 .wrapper h1 {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-size: 75px;
   margin-bottom: 60px;
   text-align: center;
@@ -36,7 +36,6 @@ body {
   background: #142531;
   opacity: 0.875;
 }
-
 
 .team {
   display: flex;
@@ -66,12 +65,15 @@ body {
   text-transform: uppercase;
   margin: 12px 0;
 }
+.role {
+  color: black !important;
+}
 .blockquote--bordered {
   border-left-width: 10px;
 }
 
 .blockquote {
-  position: center!important;
+  position: center !important;
   /* max-width: 600px; */
   margin: 50px 600px;
   padding: 25px;
@@ -81,7 +83,6 @@ body {
   font-family: italic;
   text-align: center;
 }
-
 
 .logo {
 }
