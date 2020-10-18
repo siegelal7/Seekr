@@ -177,6 +177,15 @@ p {
   visibility: visible;
 }
 
+/* .saved {
+  position: absolute;
+  top: 0;
+  right: 3px;
+  color: rgb(255, 255, 193);
+} */
+
+
+
 /* Styling for each column in the job_board.handlebars page */
 .cell-col {
   margin-top: 10px;
