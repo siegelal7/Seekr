@@ -17,13 +17,7 @@ canvas {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
-  background-attachment: fixed;
   z-index: -10;
-  /* background: url("") no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; */
 }
 .header {
   background: #142531;
