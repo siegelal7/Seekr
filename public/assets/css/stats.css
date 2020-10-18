@@ -24,10 +24,12 @@ canvas {
   opacity: 0.875;
 }
 
-
-#graphDiv, #jobsAppliedDiv {
+#graphDiv,
+#jobsAppliedDiv {
+  /* margin-left: auto;
+  margin-right: auto; */
   display: inline-block;
   height: 30rem;
-  width: 50rem; 
+  width: 50rem;
   margin-top: 2rem;
 }
