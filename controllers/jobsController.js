@@ -26,7 +26,7 @@ router.get("/favorites", isAuthenticated, (req, res) => {
   db.Job.findAll({
     where: {
       UserId: req.user.id,
-      starred: 1
+      starred: 1,
     },
   }).then(function (data) {
     // console.log(data[0].dataValues);
@@ -36,7 +36,6 @@ router.get("/favorites", isAuthenticated, (req, res) => {
   });
 });
 
-//FIXME:
 router.get("/stats", isAuthenticated, (req, res) => {
   db.Job.findAll({
     where: {
@@ -102,11 +101,19 @@ router.get("/api/ydata", isAuthenticated, (req, res) => {
 //General API for retrieving job by user id
 router.get("/api/userAuthJobs", isAuthenticated, (req, res) => {
   db.Job.findAll({
-    attributes: ['id', 'jobName', 'company', 'stage', 'starred',
-    [sequelize.fn('date_format', sequelize.col('createdAt'), '%Y-%m-%d'), 'createdAt_formatted']
-  ],
+    attributes: [
+      "id",
+      "jobName",
+      "company",
+      "stage",
+      "starred",
+      [
+        sequelize.fn("date_format", sequelize.col("createdAt"), "%Y-%m-%d"),
+        "createdAt_formatted",
+      ],
+    ],
     where: {
-      UserId : req.user.id,
+      UserId: req.user.id,
     },
   }).then((dbJobs) => res.json(dbJobs));
 });
@@ -166,6 +173,5 @@ async function determineStage(data) {
     resolve(yData);
   });
 }
-
 
 module.exports = router;
